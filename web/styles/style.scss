@@ -1,16 +1,26 @@
-$header-color: #c70d39;
-.nav-col {
-    padding: 0;
-}
-
-nav {
-    background-color: $header-color;
-}
-
-.nav-text {
-    color: white !important;
-}
-
-.active {
-    font-weight: bold;
-}
+    $header-color: #c70d39;
+    $hover-color: #900c3f;
+    .nav-col {
+        padding: 0;
+    }
+    
+    nav {
+        background-color: $header-color;
+        a:hover {
+            background-color: $hover-color;
+            transition: 0.7s;
+        }
+    }
+    
+    .nav-text {
+        color: white !important;
+    }
+    
+    .active {
+        font-weight: bold;
+    }
+    
+    .nav-container {
+        margin-right: 25px;
+        margin-left: 25px;
+    }
