@@ -1,0 +1,16 @@
+.nav-col {
+  padding: 0;
+}
+
+nav {
+  background-color: #c70d39;
+}
+
+.nav-text {
+  color: white !important;
+}
+
+.active {
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */
