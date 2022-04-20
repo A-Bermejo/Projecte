@@ -40,4 +40,11 @@ footer {
   height: 60px;
   background: #900c3f;
 }
+
+.card-img-top {
+  height: 250px;
+  margin-bottom: 20px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 /*# sourceMappingURL=style.css.map */

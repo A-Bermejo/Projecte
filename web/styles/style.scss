@@ -40,3 +40,10 @@
         height: 60px;
         background: $hover-color;
     }
+    
+    .card-img-top {
+        height: 250px;
+        margin-bottom: 20px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
