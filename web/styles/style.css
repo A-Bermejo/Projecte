@@ -86,23 +86,23 @@ body.dark .card {
   border-color: #900c3f;
 }
 
-input {
+.buscador {
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }
 
-body.dark input {
+body.dark .buscador {
   color: white;
   border-color: #3c4043;
   background-color: #303134;
 }
 
-input:focus {
+.buscador:focus {
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }
 
-body.dark input:focus {
+body.dark .buscador:focus {
   color: white;
   border-color: #3c4043;
   background-color: #303134;

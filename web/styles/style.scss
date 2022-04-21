@@ -90,7 +90,7 @@
         border-color: $hover-color;
     }
     
-    input {
+    .buscador {
         transition: .3s ease all;
         body.dark & {
             color: white;
@@ -99,7 +99,7 @@
         }
     }
     
-    input:focus {
+    .buscador:focus {
         transition: .3s ease all;
         body.dark & {
             color: white;
