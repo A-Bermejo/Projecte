@@ -1,5 +1,10 @@
+        // Paleta de colores pagina 
         $header-color: #c70d39;
         $hover-color: #900c3f;
+        //Paleta modo oscuro
+        $darkmode-background: #1c1f2b;
+        $darkmode-card: #2d3143;
+        $darkmode-border: #f4f4f5;
         .nav-col {
             padding: 0;
         }
@@ -61,7 +66,7 @@
             background-color: #FFFF;
             transition: .3s ease all;
             &.dark {
-                background-color: #1c1f2b;
+                background-color: $darkmode-background;
                 color: #FFFF;
             }
         }
@@ -69,8 +74,13 @@
         .card {
             transition: .3s ease all;
             body.dark & {
-                background-color: #2d3143;
+                background-color: $darkmode-card;
                 color: #FFFF;
-                border-color: #f4f4f5;
+                border-color: $darkmode-border;
             }
+        }
+        
+        .form-check-input:checked {
+            background-color: $header-color;
+            border-color: $hover-color;
         }

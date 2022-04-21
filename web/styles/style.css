@@ -80,4 +80,9 @@ body.dark .card {
   color: #FFFF;
   border-color: #f4f4f5;
 }
+
+.form-check-input:checked {
+  background-color: #c70d39;
+  border-color: #900c3f;
+}
 /*# sourceMappingURL=style.css.map */
