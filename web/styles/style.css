@@ -107,4 +107,13 @@ body.dark input:focus {
   border-color: #3c4043;
   background-color: #303134;
 }
+
+.btn-outline-danger:hover {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark .btn-outline-danger:hover {
+  color: #202124;
+}
 /*# sourceMappingURL=style.css.map */

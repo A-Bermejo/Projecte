@@ -16,7 +16,11 @@ function init() {
 }
 
 function opcionsOver() {
-    document.getElementById("opcions-row").style.filter = "invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%)"
+    if (document.body.classList.contains('dark')) {
+        document.getElementById("opcions-row").style.filter = "invert(10%) sepia(10%) saturate(462%) hue-rotate(187deg) brightness(92%) contrast(92%)"
+    } else {
+        document.getElementById("opcions-row").style.filter = "invert(100%) sepia(0%) saturate(19%) hue-rotate(69deg) brightness(105%) contrast(100%)"
+    }
 }
 
 function opcionsOut() {
