@@ -52,3 +52,25 @@
         #opcions-row {
             filter: invert(24%) sepia(31%) saturate(7034%) hue-rotate(341deg) brightness(95%) contrast(81%);
         }
+        
+        #darkMode {
+            filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+        }
+        
+        body {
+            background-color: #FFFF;
+            transition: .3s ease all;
+            &.dark {
+                background-color: #1c1f2b;
+                color: #FFFF;
+            }
+        }
+        
+        .card {
+            transition: .3s ease all;
+            body.dark & {
+                background-color: #2d3143;
+                color: #FFFF;
+                border-color: #f4f4f5;
+            }
+        }

@@ -4,11 +4,13 @@ var opcionsOpen = false;
 function init() {
     // VARIABLES
     let opcions = document.getElementById("opcions");
+    let dark = document.getElementById("darkMode");
 
     // EVENTOS
     opcions.addEventListener("mouseover", opcionsOver)
     opcions.addEventListener("mouseout", opcionsOut)
     opcions.addEventListener("click", opcionsclick)
+    dark.addEventListener("click", darkMode)
 
 
 }
@@ -28,6 +30,15 @@ function opcionsclick() {
     } else {
         document.getElementById("opcions-row").src = "img/caret-down-fill.svg";
         opcionsOpen = false
+    }
+}
+
+function darkMode() {
+    document.body.classList.toggle('dark')
+    if (document.body.classList.contains('dark')) {
+        document.getElementById("darkMode").src = "img/brightness-high-fill.svg";
+    } else {
+        document.getElementById("darkMode").src = "img/moon-stars-fill.svg";
     }
 }
 $(document).ready(init);
