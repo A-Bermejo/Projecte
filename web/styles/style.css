@@ -25,12 +25,12 @@ nav a:hover {
   margin-left: 25px;
 }
 
-.button-cercar {
+.button-buscar {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
 }
 
-.text-cercar {
+.text-buscar {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 body.dark {
-  background-color: #1c1f2b;
+  background-color: #202124;
   color: #FFFF;
 }
 
@@ -76,13 +76,35 @@ body.dark {
 }
 
 body.dark .card {
-  background-color: #2d3143;
+  background-color: #424242;
   color: #FFFF;
-  border-color: #f4f4f5;
+  border-color: #3c4043;
 }
 
 .form-check-input:checked {
   background-color: #c70d39;
   border-color: #900c3f;
+}
+
+input {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark input {
+  color: white;
+  border-color: #3c4043;
+  background-color: #303134;
+}
+
+input:focus {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark input:focus {
+  color: white;
+  border-color: #3c4043;
+  background-color: #303134;
 }
 /*# sourceMappingURL=style.css.map */
