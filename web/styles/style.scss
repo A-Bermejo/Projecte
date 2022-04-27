@@ -1,0 +1,116 @@
+    // Paleta de colores pagina 
+    $header-color: #c70d39;
+    $hover-color: #900c3f;
+    //Paleta modo oscuro
+    // $darkmode-background: #1c1f2b;
+    // $darkmode-card: #2d3143;
+    // $darkmode-border: #f4f4f5;
+    //Paleta Google
+    $darkmode-background: #202124;
+    $darkmode-card: #424242;
+    $darkmode-border: #3c4043;
+    $darkmode-buscador: #303134;
+    .nav-col {
+        padding: 0;
+    }
+    
+    nav {
+        background-color: $header-color;
+        a:hover {
+            background-color: $hover-color;
+            transition: 0.7s;
+        }
+    }
+    
+    .nav-text {
+        color: white !important;
+    }
+    
+    .active {
+        font-weight: bold;
+    }
+    
+    .nav-container {
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+    
+    .button-buscar {
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+    
+    .text-buscar {
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+    
+    footer {
+        width: 100%;
+        height: 60px;
+        background: $hover-color;
+        color: white;
+    }
+    
+    .card-img-top {
+        height: 250px;
+        margin-bottom: 20px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    
+    #opcions-row {
+        filter: invert(24%) sepia(31%) saturate(7034%) hue-rotate(341deg) brightness(95%) contrast(81%);
+    }
+    
+    #darkMode {
+        filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+    }
+    
+    body {
+        background-color: #FFFF;
+        transition: .3s ease all;
+        &.dark {
+            background-color: $darkmode-background;
+            color: #FFFF;
+        }
+    }
+    
+    .card {
+        transition: .3s ease all;
+        body.dark & {
+            background-color: $darkmode-card;
+            color: #FFFF;
+            border-color: $darkmode-border;
+        }
+    }
+    
+    .form-check-input:checked {
+        background-color: $header-color;
+        border-color: $hover-color;
+    }
+    
+    .buscador {
+        transition: .3s ease all;
+        body.dark & {
+            color: white;
+            border-color: $darkmode-border;
+            background-color: $darkmode-buscador;
+        }
+    }
+    
+    .buscador:focus {
+        transition: .3s ease all;
+        body.dark & {
+            color: white;
+            border-color: $darkmode-border;
+            background-color: $darkmode-buscador;
+        }
+    }
+    
+    .btn-outline-danger:hover {
+        transition: .3s ease all;
+        body.dark & {
+            color: $darkmode-background;
+        }
+    }
