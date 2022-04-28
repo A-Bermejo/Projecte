@@ -5,11 +5,13 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "express": "^4.18.0",
+        "express-handlebars": "^6.0.5",
         "hbs": "^4.2.0",
         "mysql": "^2.18.1"
     },

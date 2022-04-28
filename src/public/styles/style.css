@@ -1,3 +1,12 @@
+.nav-container {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.nav-text {
+  color: white !important;
+}
+
 .nav-col {
   padding: 0;
 }
@@ -12,27 +21,8 @@ nav a:hover {
   transition: 0.7s;
 }
 
-.nav-text {
-  color: white !important;
-}
-
 .active {
   font-weight: bold;
-}
-
-.nav-container {
-  margin-right: 25px;
-  margin-left: 25px;
-}
-
-.button-buscar {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-}
-
-.text-buscar {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
 }
 
 footer {
@@ -40,80 +30,5 @@ footer {
   height: 60px;
   background: #900c3f;
   color: white;
-}
-
-.card-img-top {
-  height: 250px;
-  margin-bottom: 20px;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-#opcions-row {
-  -webkit-filter: invert(24%) sepia(31%) saturate(7034%) hue-rotate(341deg) brightness(95%) contrast(81%);
-          filter: invert(24%) sepia(31%) saturate(7034%) hue-rotate(341deg) brightness(95%) contrast(81%);
-}
-
-#darkMode {
-  -webkit-filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
-          filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
-}
-
-body {
-  background-color: #FFFF;
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark {
-  background-color: #202124;
-  color: #FFFF;
-}
-
-.card {
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark .card {
-  background-color: #424242;
-  color: #FFFF;
-  border-color: #3c4043;
-}
-
-.form-check-input:checked {
-  background-color: #c70d39;
-  border-color: #900c3f;
-}
-
-.buscador {
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark .buscador {
-  color: white;
-  border-color: #3c4043;
-  background-color: #303134;
-}
-
-.buscador:focus {
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark .buscador:focus {
-  color: white;
-  border-color: #3c4043;
-  background-color: #303134;
-}
-
-.btn-outline-danger:hover {
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark .btn-outline-danger:hover {
-  color: #202124;
 }
 /*# sourceMappingURL=style.css.map */

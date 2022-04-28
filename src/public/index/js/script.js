@@ -29,10 +29,10 @@ function opcionsOut() {
 
 function opcionsclick() {
     if (!opcionsOpen) {
-        document.getElementById("opcions-row").src = "img/caret-up-fill.svg";
+        document.getElementById("opcions-row").src = "index/img/caret-up-fill.svg";
         opcionsOpen = true
     } else {
-        document.getElementById("opcions-row").src = "img/caret-down-fill.svg";
+        document.getElementById("opcions-row").src = "index/img/caret-down-fill.svg";
         opcionsOpen = false
     }
 }
@@ -40,9 +40,9 @@ function opcionsclick() {
 function darkMode() {
     document.body.classList.toggle('dark')
     if (document.body.classList.contains('dark')) {
-        document.getElementById("darkMode").src = "img/brightness-high-fill.svg";
+        document.getElementById("darkMode").src = "index/img/brightness-high-fill.svg";
     } else {
-        document.getElementById("darkMode").src = "img/moon-stars-fill.svg";
+        document.getElementById("darkMode").src = "index/img/moon-stars-fill.svg";
     }
 }
 $(document).ready(init);
