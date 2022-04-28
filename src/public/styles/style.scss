@@ -35,9 +35,29 @@
      font-weight: bold;
  }
  
+ #darkMode {
+     filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+ }
+ 
+ body {
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ header {
+     min-height: 50px;
+     background: lightcyan;
+ }
+ 
  footer {
-     width: 100%;
-     height: 60px;
+     margin-top: auto !important;
+     bottom: 0;
      background: $hover-color;
      color: white;
+ }
+ 
+ .row-footer {
+     width: 100%;
+     height: 60px;
  }
