@@ -21,10 +21,6 @@ nav a:hover {
   transition: 0.7s;
 }
 
-.active {
-  font-weight: bold;
-}
-
 #darkMode {
   -webkit-filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
           filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);

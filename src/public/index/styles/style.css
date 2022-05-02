@@ -77,4 +77,8 @@ body.dark .buscador:focus {
 body.dark .btn-outline-danger:hover {
   color: #202124;
 }
+
+#inicio {
+  font-weight: bold;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,12 +1,18 @@
 const express = require('express');
 const path = require('path');
 const { engine } = require('express-handlebars');
-// const db = require('./database')
+const flash = require('connect-flash')
+const session = require('express-session');
+const MySQLSession = require('express-mysql-session');
+const passport = require('passport');
+const { database } = require('./databaseConfig')
 
 
 const app = express();
+require('./lib/passport.js');
 
 //Settings 
+
 app.set('port', 3050);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', engine({
@@ -20,13 +26,23 @@ app.set('view engine', '.hbs');
 
 
 // Middlewares
+app.use(session({
+    secret: 'whatthefood',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLSession(database)
+}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 // Variables globales
 
 //Routes
 app.use(require('./routes'));
 app.use('/', require('./routes/index'));
-app.use('/login', require('./routes/login'))
+app.use('/signup', require('./routes/signup'))
     // Public
 
 app.use(express.static(path.join(__dirname, 'public')));
