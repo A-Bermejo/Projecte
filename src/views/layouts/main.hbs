@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <script src="jQueryMin341.js"></script>
     <script type="text/javascript" src="{{src}}/js/script.js"></script>
+    <script type="text/javascript" src="js/nav.js"></script>
     <script src="bootsrap/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What the Food</title>
@@ -17,6 +18,12 @@
 
 {{> nav}} 
 
+{{#if errorSignup}}
+<div class="alert alert-danger  alert-dismissible fade show m-2" role="alert">
+  <img width="30" class="errorSingup" src="img/exclamation-triangle-fill.svg">{{errorSignup}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
 {{{body}}}
 
 {{> footer}}

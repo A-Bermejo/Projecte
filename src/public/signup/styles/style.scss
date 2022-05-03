@@ -1,0 +1,49 @@
+ // Paleta de colores pagina 
+ $header-color: #c70d39;
+ $hover-color: #900c3f;
+ //Paleta modo oscuro
+ // $darkmode-background: #1c1f2b;
+ // $darkmode-card: #2d3143;
+ // $darkmode-border: #f4f4f5;
+ //Paleta Google
+ $darkmode-background: #202124;
+ $darkmode-card: #424242;
+ $darkmode-border: #3c4043;
+ $darkmode-buscador: #303134;
+ body {
+     background-image: url("../../img/b-body.png");
+     background-position: center;
+     background-color: #FFFF;
+     transition: .3s ease all;
+     &.dark {
+         background-image: url("../../img/b-dark.png");
+         background-color: $darkmode-background;
+         color: #FFFF;
+     }
+ }
+ 
+ .card-header {
+     transition: .3s ease all;
+     body.dark & {
+         background-color: #181818;
+         color: #FFFF;
+     }
+ }
+ 
+ .card {
+     transition: .3s ease all;
+     body.dark & {
+         background-color: $darkmode-card;
+         color: #FFFF;
+         border-color: $darkmode-border;
+     }
+ }
+ 
+ .form-control {
+     transition: .3s ease all;
+     body.dark & {
+         color: white;
+         border-color: $darkmode-border;
+         background-color: $darkmode-buscador;
+     }
+ }

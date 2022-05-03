@@ -26,6 +26,7 @@ app.set('view engine', '.hbs');
 
 
 // Middlewares
+
 app.use(session({
     secret: 'whatthefood',
     resave: false,
@@ -38,6 +39,10 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 // Variables globales
+app.use((req, res, next) => {
+    app.locals.errorSignup = req.flash('errorSignup');
+    next();
+})
 
 //Routes
 app.use(require('./routes'));

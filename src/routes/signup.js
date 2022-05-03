@@ -4,7 +4,7 @@ const passport = require('passport')
 const pool = require('../database');
 
 router.get('/', (req, res) => {
-    res.render('signup/signup', { style: "signup" });
+    res.render('signup/signup', { src: "signup" });
 })
 
 router.post('/', passport.authenticate('local', {
