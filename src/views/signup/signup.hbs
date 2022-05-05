@@ -1,24 +1,32 @@
-<div class="container-fluid b">
+<div class="container-fluid">
     <div class="row">
         <div class="col-8 col-lg-6 mx-auto">
-            <div class="card text-center mt-5">
-                <div class="card-header">
+            <div class="card mt-5">
+                <div class="card-header text-center">
                     <h3>SignUp</h3>
                 </div>
                 <div class="card-body">
                     <form action="/signup" method="POST">
                     <div class="form-group">
-                      <label>Nombre de usuario</label>
+                      <label>Nombre de usuario*</label>
                       <input type="text" name="user" id="user" class="form-control" placeholder="" autofocus>
                     </div>
                     <div class="form-group">
-                      <label>Correo Electronico</label>
+                      <label>Correo Electronico*</label>
                       <input type="email" name="mail" id="mail" class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
-                      <label>Contraseña</label>
+                      <label>Contraseña*</label>
                       <input type="password" name="pass" id="pass" class="form-control" placeholder="" >
                     </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="showPass">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Mostrar contraseña
+                        </label>
+                      </div>
+
                     <div class="form-group mt-2">
                       <button class="btn btn-primary">
                           Registrarse

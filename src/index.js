@@ -6,6 +6,7 @@ const session = require('express-session');
 const MySQLSession = require('express-mysql-session');
 const passport = require('passport');
 const { database } = require('./databaseConfig')
+var cookieParser = require('cookie-parser')
 
 
 const app = express();
@@ -33,6 +34,7 @@ app.use(session({
     saveUninitialized: false,
     store: new MySQLSession(database)
 }));
+app.use(cookieParser('A'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(flash());
@@ -40,7 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Variables globales
 app.use((req, res, next) => {
-    app.locals.errorSignup = req.flash('errorSignup');
+    app.locals.errorFlash = req.flash('errorFlash');
     next();
 })
 
