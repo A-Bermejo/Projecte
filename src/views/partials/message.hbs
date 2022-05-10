@@ -1,6 +1,13 @@
 {{#if errorFlash}}
 <div class="alert alert-danger  alert-dismissible fade show m-2" role="alert">
-  <img width="30" class="errorSingup" src="img/exclamation-triangle-fill.svg">{{errorFlash}}
+  <img width="30" class="errorFlash" src="img/exclamation-triangle-fill.svg">{{errorFlash}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#if successFlash}}
+<div class="alert alert-success  alert-dismissible fade show m-2" role="alert">
+  <img width="30" class="successFlash" src="img/check-circle-fill.svg">{{successFlash}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {{/if}}

@@ -10,3 +10,7 @@ exports.addUser = async function(body) {
 exports.deserialize = async function(id) {
     return await pool.query("SELECT * FROM " + TABLE_NAME + " WHERE id_usuari = ?", [id]);
 }
+
+exports.getUserByUsername = async function(user) {
+    return await pool.query("SELECT * FROM " + TABLE_NAME + "  WHERE nom_usuari = ?", [user]);
+}

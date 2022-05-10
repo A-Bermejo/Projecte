@@ -1,9 +1,30 @@
 const async = require('hbs/lib/async');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const modelSignup = require('../model/signup');
+const modelAuth = require('../model/auth');
 const helpers = require('../lib/helpers');
 const flash = require('connect-flash/lib/flash');
+
+
+passport.use('local.signin', new LocalStrategy({
+    usernameField: 'user',
+    passwordField: 'pass',
+    passReqToCallback: true
+}, async(req, user, pass, done) => {
+    var userDB = await modelAuth.getUserByUsername(user);
+
+    if (userDB.length > 0) {
+        var validPassword = await helpers.matchPassword(pass, userDB[0].password)
+        if (validPassword) {
+            return done(null, userDB[0].id_usuari, req.flash('successFlash', 'Wellcome ' + userDB[0].nom_usuari));
+        } else {
+            return done(null, false, req.flash('errorFlash', 'El nombre de usuario o la contraseña es incorrecto'));
+        }
+    } else {
+        return done(null, false, req.flash('errorFlash', 'El nombre de usuario o la contraseña es incorrecto'));
+
+    }
+}));
 
 passport.use('local', new LocalStrategy({
     usernameField: 'user',
@@ -17,7 +38,7 @@ passport.use('local', new LocalStrategy({
         if (!await comprobarPass(req.body.pass)) return done(null, false, req.flash('errorFlash', 'La contraseña debe incluir como mínimo una mayúscula, una minúscula y un dígito y la longitud debe ser entre 8 y 20'));
         if (!await comrpobarMail(req.body.mail)) return done(null, false, req.flash('errorFlash', 'Email incorrecto'));
         req.body.pass = await helpers.encryptPassword(req.body.pass)
-        const res = await modelSignup.addUser(req.body);
+        const res = await modelAuth.addUser(req.body);
 
         const newUser = {
             username: req.body.user,
@@ -25,18 +46,18 @@ passport.use('local', new LocalStrategy({
             id: parseInt(res.insertId)
         }
 
-        return done(null, newUser);
+        return done(null, newUser.id);
     } catch {
         return done(null, false, req.flash('errorFlash', 'El correo o el usuario ya existe'));
     }
 }));
 
-passport.serializeUser((newUser, done) => {
-    done(null, newUser.id);
+passport.serializeUser((id, done) => {
+    done(null, id);
 });
 
 passport.deserializeUser(async(id, done) => {
-    var rows = await modelSignup.deserialize(id);
+    var rows = await modelAuth.deserialize(id);
     done(null, rows[0])
 });
 

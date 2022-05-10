@@ -63,6 +63,10 @@
      border-radius: 0.25rem;
  }
  
- .errorSingup {
+ .errorFlash {
      filter: invert(18%) sepia(16%) saturate(7361%) hue-rotate(330deg) brightness(97%) contrast(97%);
+ }
+ 
+ .successFlash {
+     filter: invert(24%) sepia(9%) saturate(4559%) hue-rotate(103deg) brightness(88%) contrast(88%);
  }
