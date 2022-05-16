@@ -321,6 +321,7 @@ CREATE TABLE IF NOT EXISTS usuaris(
 
 CREATE TABLE IF NOT EXISTS receptes (
     id_recepta INT NOT NULL AUTO_INCREMENT,
+    nom_recepta VARCHAR(255),
     descripcio_recepta VARCHAR(255),
     temps TIME,
     video_recepta VARCHAR(255),

@@ -12,5 +12,5 @@ exports.deserialize = async function(id) {
 }
 
 exports.getUserByUsername = async function(user) {
-    return await pool.query("SELECT * FROM " + TABLE_NAME + "  WHERE nom_usuari = ?", [user]);
+    return await pool.query("SELECT * FROM " + TABLE_NAME + "  WHERE BINARY nom_usuari = ?", [user]);
 }

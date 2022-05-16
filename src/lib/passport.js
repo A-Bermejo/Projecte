@@ -16,7 +16,7 @@ passport.use('local.signin', new LocalStrategy({
     if (userDB.length > 0) {
         var validPassword = await helpers.matchPassword(pass, userDB[0].password)
         if (validPassword) {
-            return done(null, userDB[0].id_usuari, req.flash('successFlash', 'Wellcome ' + userDB[0].nom_usuari));
+            return done(null, userDB[0].id_usuari, req.flash('successFlash', ' Bienvenido ' + userDB[0].nom_usuari));
         } else {
             return done(null, false, req.flash('errorFlash', 'El nombre de usuario o la contraseña es incorrecto'));
         }

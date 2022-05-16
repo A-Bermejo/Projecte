@@ -2,8 +2,10 @@ const exrpess = require('express');
 const router = exrpess.Router();
 const passport = require('passport')
 const pool = require('../database');
+const { isNotLoggedIn } = require('../lib/auth');
 
-router.get('/', (req, res) => {
+
+router.get('/', isNotLoggedIn, (req, res) => {
     res.render('auth/signup', { src: "signup" });
 })
 

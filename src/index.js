@@ -43,24 +43,23 @@ app.use(passport.session());
 // Variables globales
 app.use((req, res, next) => {
     app.locals.errorFlash = req.flash('errorFlash');
-    next();
-})
-
-app.use((req, res, next) => {
     app.locals.successFlash = req.flash('successFlash');
+    app.locals.user = req.user
+
     next();
 })
-
 
 //Routes
 app.use(require('./routes'));
 app.use('/', require('./routes/index'));
 app.use('/signup', require('./routes/signup'))
 app.use('/signin', require('./routes/login'))
+app.use('/favorites', require('./routes/favorites'))
+app.use('/recipe', require('./routes/recipe'))
 
 // Public
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // Crear server en el puerto 3050 y mostrar mensaje 
 app.listen(app.get('port'), () => {
