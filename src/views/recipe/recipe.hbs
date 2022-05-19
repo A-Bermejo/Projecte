@@ -4,10 +4,10 @@
             <div class="card mt-5 text-center">
                 <div class="card-header ">
                     <h3 id="nombre"> {{{recetaInfo.[0].nom_recepta}}}   <img src="/img/star.svg" class="img-header" alt="..."></h3>
-                    
-
+                    <h4>País de origen: {{{recetaInfo.[0].nombre_pais}}}</h4>                  
                 </div>
-                    <img src="/index/img/b.jpg" class="card-img-top" alt="...">
+                <div>
+                    <img src="/uploads/{{{recetaInfo.[0].img}}}"    class="card-img-top" alt="...">
                     <div class="container-fluid mb-3">
                     {{#if etiquetasHBS.vegano}}
                     <span class="badge bg-success">🍃Vegetariano</span>
@@ -38,6 +38,7 @@
                         Receta subida por: {{{recetaInfo.[0].nom_usuari}}}
                     </div>
                     {{/if}}
+                </div>
             </div>
         </div>
     </div>

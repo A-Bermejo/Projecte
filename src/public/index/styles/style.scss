@@ -11,6 +11,7 @@
     $darkmode-border: #3c4043;
     $darkmode-buscador: #303134;
     .button-buscar {
+        height: 100% !important;
         border-top-left-radius: 0px !important;
         border-bottom-left-radius: 0px !important;
     }
@@ -81,4 +82,55 @@
     
     #inicio {
         font-weight: bold;
+    }
+    
+    .select2-container {
+        width: 100% !important;
+    }
+    
+    .select2-results__option[aria-selected] {
+        transition: .3s ease all;
+        body.dark & {
+            background-color: $darkmode-background;
+        }
+    }
+    
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+        color: black;
+    }
+    
+    .select2-container--default .select2-selection--multiple {
+        border-radius: 50rem!important;
+        transition: .3s ease all;
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+        height: 100% !important;
+        body.dark & {
+            color: white !important;
+            border-color: $darkmode-border !important;
+            background-color: $darkmode-buscador !important;
+        }
+    }
+    
+    .select2-container--default .select2-search--inline .select2-search__field {
+        color: white !important;
+    }
+    
+    #buscador {
+        padding-right: 0px;
+    }
+    
+    #boton {
+        padding-left: 0px;
+    }
+    
+    .inputGroup {
+        height: 100% !important;
+    }
+    
+    .select2-results__option {
+        body.dark & {
+            color: white !important;
+            background-color: $darkmode-buscador !important;
+        }
     }

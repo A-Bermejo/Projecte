@@ -22,9 +22,27 @@
                         <div class="text-center">
                             <label for="cercador" class="form-label">Cerca aquí</label>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control text-buscar rounded-pill buscador" id="buscador">
-                            <button class="btn btn-outline-danger rounded-pill button-buscar" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpcion" aria-expanded="false" aria-controls="collapseOpcion" id="opcions">Opcions <img id="opcions-row" src="index/img/caret-down-fill.svg"></button>
+                         {{!-- <select id="ingredient" class='mi-selector rounded-pill' name='ingredient' multiple='multiple'>
+                            {{#each ingredients}}
+                                <option value="{{this.nom_ingredient}}">{{this.nom_ingredient}}</option>
+                            {{/each}} --}}
+                         {{!-- </select> --}}
+                         <div class="container-fluid"> 
+                             <div class="row mb-2"> 
+                                <div class="col-10" id="buscador"> 
+                                    <div class="input-group mb-3 inputGroup">
+                                        {{!-- <input type="text" class="form-control text-buscar rounded-pill buscador" id="buscador"> --}}
+                                         <select id="ingredient" class='mi-selector rounded-pill' name='ingredient' multiple='multiple'>
+                                        {{#each ingredients}}
+                                            <option value="{{this.nom_ingredient}}">{{this.nom_ingredient}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2" id="boton"> 
+                                <button class="btn btn-outline-danger rounded-pill button-buscar" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpcion" aria-expanded="false" aria-controls="collapseOpcion" id="opcions">Opcions <img id="opcions-row" src="index/img/caret-down-fill.svg"></button>
+                            </div>
+                        </div>
                         </div>
                         <div class="collapse" id="collapseOpcion">
                             <div class="card card-body">

@@ -1,0 +1,79 @@
+.card-img-top {
+    margin-bottom: 20px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.img-header {
+    width: 20px;
+}
+
+//Paleta Google
+$darkmode-background: #202124;
+$darkmode-card: #424242;
+$darkmode-border: #3c4043;
+$darkmode-buscador: #303134;
+body {
+    background-color: #FFFF;
+    transition: .3s ease all;
+    &.dark {
+        background-color: $darkmode-background;
+        color: #FFFF;
+    }
+}
+
+.card {
+    transition: .3s ease all;
+    body.dark & {
+        background-color: $darkmode-card;
+        color: #FFFF;
+        border-color: $darkmode-border;
+    }
+}
+
+.text-muted {
+    body.dark & {
+        color: #c3c3c3 !important;
+    }
+}
+
+.list-group-item {
+    body.dark & {
+        color: #ffffff !important;
+        border-top: 1px solid #FFFF;
+        background-color: $darkmode-card;
+    }
+}
+
+.bg-purple {
+    background-color: blueviolet
+}
+
+.select2-container {
+    width: 50% !important;
+}
+
+.select2-results__option[aria-selected] {
+    body.dark & {
+        background-color: $darkmode-background;
+    }
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    color: black;
+}
+
+.select2-results__option {
+    body.dark & {
+        color: white !important;
+        background-color: $darkmode-buscador !important;
+    }
+}
+
+.select2-container {
+    display: inline !important;
+}
+
+span {
+    color: red;
+}

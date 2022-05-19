@@ -11,7 +11,9 @@ function init() {
     opcions.addEventListener("mouseout", opcionsOut)
     opcions.addEventListener("click", opcionsclick)
     dark.addEventListener("click", darkMode)
-
+    $('#ingredient').on('select2:open', function(e) {
+        $("#ingredient").css("border-radius", "0");
+    });
 
 }
 

@@ -5,8 +5,9 @@ const flash = require('connect-flash')
 const session = require('express-session');
 const MySQLSession = require('express-mysql-session');
 const passport = require('passport');
-const { database } = require('./databaseConfig')
-var cookieParser = require('cookie-parser')
+const { database } = require('./databaseConfig');
+const cookieParser = require('cookie-parser');
+const multer = require('multer');
 
 
 const app = express();
@@ -24,7 +25,16 @@ app.engine('.hbs', engine({
     helpers: require('./lib/handlebars')
 }))
 app.set('view engine', '.hbs');
-
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, path.join(__dirname, 'public/uploads'))
+    },
+    filename: function(req, file, cb) {
+        let extArray = file.mimetype.split("/");
+        let extension = extArray[extArray.length - 1];
+        cb(null, file.fieldname + '-' + Date.now() + '.' + extension)
+    }
+})
 
 // Middlewares
 
@@ -34,12 +44,24 @@ app.use(session({
     saveUninitialized: false,
     store: new MySQLSession(database)
 }));
-app.use(cookieParser('A'))
+app.use(cookieParser('whatthefood'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(multer({
+    storage,
+    dest: path.join(__dirname, 'public/uploads'),
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb();
+        }
+    }
+}).single('img'));
 // Variables globales
 app.use((req, res, next) => {
     app.locals.errorFlash = req.flash('errorFlash');
