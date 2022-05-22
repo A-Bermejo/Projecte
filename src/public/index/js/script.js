@@ -13,7 +13,6 @@
      dark.addEventListener("click", darkMode)
      $('#ingredient').on('select2:select', serch);
      $('#ingredient').on('select2:unselect', serch);
-     $('#continente').on('change', serch);
 
  }
 
