@@ -1,0 +1,41 @@
+body {
+  background-color: #FFFF;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #202124;
+  color: #FFFF;
+}
+
+.card {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark .card {
+  background-color: #424242;
+  color: #FFFF;
+  border-color: #3c4043;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card {
+  height: 100%;
+}
+
+#favorites {
+  font-weight: bold;
+}
+
+.bg-purple {
+  background-color: blueviolet;
+}
+/*# sourceMappingURL=style.css.map */

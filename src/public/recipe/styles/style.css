@@ -4,10 +4,6 @@
   object-fit: cover;
 }
 
-.img-header {
-  width: 20px;
-}
-
 body {
   background-color: #FFFF;
   -webkit-transition: .3s ease all;
@@ -53,5 +49,16 @@ body.dark .list-group-item {
   height: 45vw;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.img-header {
+  width: 20px;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark .img-header {
+  -webkit-filter: invert(99%) sepia(31%) saturate(0%) hue-rotate(62deg) brightness(109%) contrast(100%);
+          filter: invert(99%) sepia(31%) saturate(0%) hue-rotate(62deg) brightness(109%) contrast(100%);
 }
 /*# sourceMappingURL=style.css.map */

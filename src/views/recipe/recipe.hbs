@@ -3,7 +3,7 @@
         <div class="col-10 col-lg-8 mx-auto">
             <div class="card mt-5 text-center">
                 <div class="card-header ">
-                    <h3 id="nombre"> {{{recetaInfo.[0].nom_recepta}}}   <img src="/img/star.svg" class="img-header" alt="..."></h3>
+                    <h3 id="nombre"> {{{recetaInfo.[0].nom_recepta}}}{{#if user}} <a class=""><input value="add" id="favorite" class="img-header" type="image" src="/img/star.svg" /></a>{{/if}}</h3>
                     <h4>País de origen: {{{recetaInfo.[0].nombre_pais}}}</h4>                  
                 </div>
                 <div>

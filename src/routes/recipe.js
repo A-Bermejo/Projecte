@@ -17,7 +17,6 @@ router.get('/getAllIngredients', async(req, res) => {
 })
 
 
-
 router.get('/add', isLoggedIn, async(req, res) => {
 
     const ingredients = await model.getIngredients();
@@ -39,6 +38,7 @@ router.post('/addNew', isLoggedIn, async(req, res) => {
     }
 
 });
+
 router.get('/:id', async(req, res) => {
     if (req.url !== "/jQueryMin341.js") {
         const recetaInfo = await model.getRecipe(req.params.id);
@@ -60,8 +60,6 @@ router.get('/:id', async(req, res) => {
             if (etiquetas.has(6) === false && etiquetas.has(7) === false && etiquetas.has(8) === false) {
                 etiquetasHBS.vegano = true;
             }
-            console.log(etiquetas);
-
 
             res.render('recipe/recipe', { src: "recipe", recetaInfo, etiquetasHBS });
         }
@@ -76,11 +74,36 @@ router.get('/getById/:id', async(req, res) => {
     res.json(recetaInfo);
 });
 
+router.post('/getByIngredients', async(req, res) => {
+    try {
+        var response = await model.getByIngredients(req.body.id, req.body.continente);
+        console.log(response);
+        var trueResponse = []
+        if (req.body.where.length != 0) {
+            for (let i = 0; i < response.length; i++) {
+                var condicion = true
+                if (req.body.where.includes("vegetariano") && (response[i].tipus.includes(6) || response[i].tipus.includes(7) || response[i].tipus.includes(8))) {
+                    condicion = false
+                }
+                if (req.body.where.includes("gluten") && response[i].tipus.includes(12)) {
+                    condicion = false
+                }
+                if (req.body.where.includes("alcohol") && response[i].tipus.includes(9)) {
+                    condicion = false
+                }
+                if (req.body.where.includes("lactosa") && response[i].tipus.includes(1)) {
+                    condicion = false
+                }
+                if (condicion) trueResponse.push(response[i])
+            }
+            res.json(trueResponse)
+        } else {
+            res.json(response)
+        }
+    } catch {
+        req.flash('errorFlash', 'Error inesperado')
+        res.redirect('/')
+    }
+})
 
-// router.get('/add', async(req, res) => {
-
-//     // req.user.id_usuari = null
-//     await model.add(req.body, null)
-
-// })
 module.exports = router;

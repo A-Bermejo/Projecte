@@ -134,3 +134,21 @@
             background-color: $darkmode-buscador !important;
         }
     }
+    
+    .card-img-top {
+        width: 100%;
+        height: 20vw;
+        object-fit: cover;
+    }
+    
+    .card {
+        height: 100%;
+    }
+    
+    .bg-purple {
+        background-color: blueviolet
+    }
+    
+    .badge {
+        margin-right: 2px
+    }

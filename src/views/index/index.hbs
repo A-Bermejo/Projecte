@@ -34,7 +34,7 @@
                                         {{!-- <input type="text" class="form-control text-buscar rounded-pill buscador" id="buscador"> --}}
                                          <select id="ingredient" class='mi-selector rounded-pill' name='ingredient' multiple='multiple'>
                                         {{#each ingredients}}
-                                            <option value="{{this.nom_ingredient}}">{{this.nom_ingredient}}</option>
+                                            <option value="{{this.id_ingredient}}">{{this.nom_ingredient}}</option>
                                         {{/each}}
                                     </select>
                                 </div>
@@ -49,28 +49,38 @@
                                 <div class="container"></div>
                                 <div class="row">
                                     <div class=" col-6 col-lg-4 form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                                        <input class="form-check-input" type="checkbox" value="vegetariano" id="vegetariano">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                      Default checkbox
+                                      Vegetariano
                                     </label>
                                     </div>
                                     <div class=" col-6 col-lg-4 form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" checked>
+                                        <input class="form-check-input" type="checkbox" value="gluten" id="gluten">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                      Default checkbox
+                                      Sin gluten
                                     </label>
                                     </div>
                                     <div class=" col-6 col-lg-4 form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" checked>
+                                        <input class="form-check-input" type="checkbox" value="alcohol" id="alcohol">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                      Default checkbox
+                                      Sin alcohol
                                     </label>
                                     </div>
                                     <div class=" col-6 col-lg-4 form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" checked>
+                                        <input class="form-check-input" type="checkbox" value="lactosa" id="lactosa">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                      Default checkbox
+                                      Sin Lactosa
                                     </label>
+                                    </div>
+                                     <div class=" col-6 col-lg-4 form-check">
+                                        <select class="form-select"  id="continente">
+                                            <option value="0" selected>Selecione un contiente</option>
+                                            <option value="1">Europa</option>
+                                            <option value="2">Africa</option>
+                                            <option value="3">Asia</option>
+                                            <option value="4">America</option>
+                                            <option value="5">Ocenia</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -81,56 +91,6 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row d-flex justify-content-evenly">
-            <div class="col-6 col-md-4 col-lg-3 mt-3">
-                <div class="card w-100 text-center">
-                    <img src="index/img/b.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-danger">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mt-3">
-                <div class="card w-100 text-center">
-                    <img src="index/img/a.jpg " class="card-img-top " alt="... ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="# " class="btn btn-danger ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mt-3">
-                <div class="card w-100 text-center">
-                    <img src="index/img/b.jpg " class="card-img-top " alt="... ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="# " class="btn btn-danger ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mt-3">
-                <div class="card w-100 text-center">
-                    <img src="index/img/a.jpg " class="card-img-top " alt="... ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="# " class="btn btn-danger ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mt-3">
-                <div class="card w-100 text-center">
-                    <img src="index/img/b.jpg " class="card-img-top " alt="... ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="# " class="btn btn-danger ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row d-flex justify-content-evenly" id="resultados">
         </div>
     </div>

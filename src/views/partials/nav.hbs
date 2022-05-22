@@ -1,7 +1,8 @@
   <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid nav-container">
-            <a class="navbar-brand" href="#">
-                <p style="color: white;">LOGO </p>
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo.png" id="logo">
+
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,9 +12,6 @@
                     <li class="nav-item">
                         <a class="nav-text nav-link" id="inicio" href="/">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" id="conocenos" href="/signup">Conócenos</a>
-                    </li>
                     {{#unless user}}
                     <li>
                         <a class="nav-link nav-text" id="signin" href="/signin">Sign in</a>
@@ -22,6 +20,12 @@
                         <a class="btn btn-dark" type="button" id="signup" href="/signup">Sign up</a>
                     </li>
                     {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link nav-text" id="conocenos" href="/recipe/add">Proponer receta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/favorites" id="favorites" class="nav-link nav-text">Favoritos</a>
+                    </li>
                      <li class="nav-item">
                         <a href="/signin/logout" class="nav-link nav-text">Cerrar sesion</a>
                     </li>

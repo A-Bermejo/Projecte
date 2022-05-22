@@ -1,0 +1,39 @@
+$darkmode-background: #202124;
+$darkmode-card: #424242;
+$darkmode-border: #3c4043;
+$darkmode-buscador: #303134;
+body {
+    background-color: #FFFF;
+    transition: .3s ease all;
+    &.dark {
+        background-color: $darkmode-background;
+        color: #FFFF;
+    }
+}
+
+.card {
+    transition: .3s ease all;
+    body.dark & {
+        background-color: $darkmode-card;
+        color: #FFFF;
+        border-color: $darkmode-border;
+    }
+}
+
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.card {
+    height: 100%;
+}
+
+#favorites {
+    font-weight: bold;
+}
+
+.bg-purple {
+    background-color: blueviolet
+}

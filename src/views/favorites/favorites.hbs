@@ -1,2 +1,41 @@
-<h1>:)</h1>
-<h2>{{user.nom_usuari}}</h2>
+ <div class="container-fluid ">
+    <div class="row d-flex text-center">
+        <h1>¡{{user.nom_usuari}} tus recetas favoritas!</h1>
+    </div>
+    <div class="row d-flex justify-content-evenly">
+        {{#if userFavorites}}
+        {{#each userFavorites}}
+        <div class="col-6 col-md-4 col-lg-3 mt-3">
+            <div class="card w-100 text-center">
+                <img src="/uploads/{{this.[0].img}}" class="card-img-top" alt="...">
+                <div class="container-fluid mt-3">
+                    {{#if this.[0].vegano}}
+                    <span class="badge bg-success">🍃Vegetariano</span>
+                    {{/if}}
+                    {{#if this.[0].gluten}}
+                    <span class="badge bg-warning">🍞Sin gluten</span>
+                    {{/if}}
+                    {{#if this.[0].alcohol}}
+                    <span class="badge bg-purple">🍾Con alcohol</span>
+                    {{/if}}
+                    {{#if this.[0].lactosa}}
+                   <span class="badge bg-secondary">🥛Sin Lactosa</span>
+                    {{/if}}
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{this.[0].nom_recepta}}</h5>
+                    <h6>Tiempo de preparacion: {{{this.[0].temps}}}</h6>
+                    <h6>País de origen: {{{this.[0].nombre_pais}}}</h6>                  
+                    <p class="card-text">{{this.[0].resumen}}</p>
+                    <a href="/recipe/{{this.[0].id_recepta}}" class="mt-auto btn btn-danger">Leer receta completa</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="row d-flex text-center mt-5">
+        <h2>{{user.nom_usuari}} no tienes ningua receta en favoritos</h2>
+        {{/if}}
+        </div>
+    </div>
+</div>      
