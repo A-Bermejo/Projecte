@@ -77,7 +77,6 @@ router.get('/getById/:id', async(req, res) => {
 router.post('/getByIngredients', async(req, res) => {
     try {
         var response = await model.getByIngredients(req.body.id, req.body.continente);
-        console.log(response);
         var trueResponse = []
         if (req.body.where.length != 0) {
             for (let i = 0; i < response.length; i++) {
@@ -94,10 +93,17 @@ router.post('/getByIngredients', async(req, res) => {
                 if (req.body.where.includes("lactosa") && response[i].tipus.includes(1)) {
                     condicion = false
                 }
-                if (condicion) trueResponse.push(response[i])
+                if (condicion) {
+                    response[i].resumen = response[i].descripcio_recepta.slice(0, 100) + "..."
+                    trueResponse.push(response[i])
+                }
             }
             res.json(trueResponse)
         } else {
+            for (let i = 0; i < response.length; i++) {
+                response[i].resumen = response[i].descripcio_recepta.slice(0, 100) + "..."
+            }
+            console.log(response);
             res.json(response)
         }
     } catch {

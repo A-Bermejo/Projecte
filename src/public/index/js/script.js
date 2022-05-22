@@ -93,7 +93,7 @@
                          '<h5 class="card-title">' + data[i].nom_recepta + '</h5>' +
                          '<h6>Tiempo de preparacion: ' + data[i].temps + '</h6>' +
                          '<h6>País de origen: ' + data[i].nombre_pais + '</h6> ' +
-                         '<p class="card-text">' + data[i].descripcio_recepta + '</p>' +
+                         '<p class="card-text">' + data[i].resumen + '</p>' +
                          '<a href="/recipe/' + data[i].id_recepta + '" class="mt-auto btn btn-danger">Leer receta completa</a>' +
                          '</div>' +
                          '</div>' +
