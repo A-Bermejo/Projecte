@@ -1,0 +1,44 @@
+$darkmode-background: #202124;
+$darkmode-card: #424242;
+$darkmode-border: #3c4043;
+$darkmode-buscador: #303134;
+body {
+    background-color: #FFFF;
+    transition: .3s ease all;
+    &.dark {
+        background-color: $darkmode-background;
+        color: #FFFF;
+    }
+}
+
+.card {
+    transition: .3s ease all;
+    body.dark & {
+        background-color: $darkmode-card;
+        color: #FFFF;
+        border-color: $darkmode-border;
+    }
+}
+
+.list-group-item {
+    body.dark & {
+        color: #ffffff !important;
+        border-top: 1px solid #FFFF;
+        background-color: $darkmode-card;
+    }
+}
+
+.text-muted {
+    body.dark & {
+        color: #c3c3c3 !important;
+    }
+}
+
+li:hover {
+    background-color: crimson !important;
+}
+
+tr {
+    background-color: #424242;
+    color: white;
+}

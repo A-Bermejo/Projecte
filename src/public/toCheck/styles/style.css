@@ -1,0 +1,48 @@
+body {
+  background-color: #FFFF;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #202124;
+  color: #FFFF;
+}
+
+.card {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark .card {
+  background-color: #424242;
+  color: #FFFF;
+  border-color: #3c4043;
+}
+
+body.dark .list-group-item {
+  color: #ffffff !important;
+  border-top: 1px solid #FFFF;
+  background-color: #424242;
+}
+
+body.dark .text-muted {
+  color: #c3c3c3 !important;
+}
+
+li:hover {
+  background-color: crimson !important;
+}
+
+tr {
+  background-color: #424242;
+  color: white;
+}
+
+table img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=style.css.map */

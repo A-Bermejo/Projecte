@@ -73,11 +73,15 @@ app.use((req, res, next) => {
 
 //Routes
 app.use(require('./routes'));
-app.use('/', require('./routes/index'));
+
 app.use('/signup', require('./routes/signup'))
 app.use('/signin', require('./routes/login'))
 app.use('/favorites', require('./routes/favorites'))
 app.use('/recipe', require('./routes/recipe'))
+app.use('/backoffice', require('./routes/backoffice'));
+app.use('/', require('./routes/index'));
+
+
 
 // Public
 

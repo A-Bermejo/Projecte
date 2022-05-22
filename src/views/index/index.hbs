@@ -2,14 +2,14 @@
         <div class="row mt-2 mb-2">
             <div class="d-flex justify-content-center text-center">
                 <div class="col-8">
-                    <h1>Crea el teu nou menjar</h1>
+                    <h1>Crea tu nueva comida</h1>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="d-flex justify-content-center text-center">
-                <div class="col-12 col-lg-6">Lorem ipsum dolor sit amet consectetur adipiscing elit nullam lacus fames nisl molestie rutrum eget taciti suspendisse malesuada magna, posuere pulvinar dictum nisi commodo lacinia leo sodales vel nam ligula morbi aliquam varius tortor
-                    rhoncus.
+                <div class="col-12 col-lg-6">Bienvenido a What The Food. Para buscar una receta es muy sencillo, introduzca alimentos que quiere que tenga su receta. Nosotros la buscamos por ti. Recuerda que también puedes usar los filtros para tener una búsqueda mas personalizada.
+                    {{#unless user}} ¿Crees que falta alguna receta? Inicia sesion y proponla. Asi nos ayudaras a que tengamos mas resultados. Con una cuenta tambien puede guardarse recetas en la pestaña de favoritos {{/unless}}
                 </div>
             </div>
         </div>
@@ -20,13 +20,8 @@
                 <div class="col-11 col-lg-7">
                     <form>
                         <div class="text-center">
-                            <label for="cercador" class="form-label">Cerca aquí</label>
+                            <label for="cercador" class="form-label">Busca aquí</label>
                         </div>
-                         {{!-- <select id="ingredient" class='mi-selector rounded-pill' name='ingredient' multiple='multiple'>
-                            {{#each ingredients}}
-                                <option value="{{this.nom_ingredient}}">{{this.nom_ingredient}}</option>
-                            {{/each}} --}}
-                         {{!-- </select> --}}
                          <div class="container-fluid"> 
                              <div class="row mb-2"> 
                                 <div class="col-10" id="buscador"> 
