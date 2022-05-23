@@ -14,7 +14,7 @@
              })
              .then(response => response.json())
              .then(data => {
-                 $(this).remove();
+                 $(this).closest("tr").remove();
 
              })
      });
