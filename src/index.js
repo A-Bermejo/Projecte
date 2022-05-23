@@ -15,7 +15,7 @@ require('./lib/passport.js');
 
 //Settings 
 
-app.set('port', 3050);
+app.set('port', process.env.PORT || 3050);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', engine({
     defaultLayout: 'main',
