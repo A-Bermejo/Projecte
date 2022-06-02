@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `continents` (
   `id_continent` int(11) NOT NULL,
   `nom_continent` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `continents`
@@ -53,7 +53,7 @@ CREATE TABLE `ingredients` (
   `id_ingredient` int(11) NOT NULL,
   `nom_ingredient` varchar(255) DEFAULT NULL,
   `tipus_id_ingredient` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `ingredients`
@@ -208,7 +208,7 @@ CREATE TABLE `ingredients_recepta` (
   `ingredients_id_ingredient` int(11) NOT NULL,
   `receptas_id_recepta` int(11) NOT NULL,
   `cantidad` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `ingredients_recepta`
@@ -319,7 +319,7 @@ CREATE TABLE `paises` (
   `id_pais` int(11) NOT NULL,
   `nombre_pais` varchar(80) NOT NULL,
   `continentes_id_continente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `paises`
@@ -588,7 +588,7 @@ CREATE TABLE `receptes` (
   `usuaris_id_usuari` int(11) NOT NULL,
   `validat_recepta` int(1) NOT NULL,
   `temps` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `receptes`
@@ -620,7 +620,7 @@ INSERT INTO `receptes` (`id_recepta`, `nom_recepta`, `descripcio_recepta`, `img`
 CREATE TABLE `receptes_favorites` (
   `receptas_id_recepta` int(11) NOT NULL,
   `usuaris_id_usuari` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 -- --------------------------------------------------------
 
@@ -632,7 +632,7 @@ CREATE TABLE `sessions` (
   `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `expires` int(11) UNSIGNED NOT NULL,
   `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `sessions`
@@ -659,7 +659,7 @@ INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
 CREATE TABLE `tipus` (
   `id_tipus` int(11) NOT NULL,
   `nom_tipus` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `tipus`
@@ -694,7 +694,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `gmail_account` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)  ;
 
 --
 -- Volcado de datos para la tabla `users`

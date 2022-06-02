@@ -4,8 +4,8 @@ var opcionsOpen = false;
 function init() {
     var user = document.getElementById("user");
     user.setAttribute("required", "");
-    user.setAttribute("pattern", "^(?!\s*$).+.{2,21}")
-    user.setAttribute("title", "Nombre de usuario incorrecto: 20 caracteres como máximo y 3 como mínimo")
+    user.setAttribute("pattern", "^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9\_\u00f1\u00d1]+$")
+    user.setAttribute("title", "Nombre de usuario incorrecto: 20 caracteres como máximo y 3 como mínimo. Solo esta permitido letras y numeros. Tambien esta permitido el uso de barra baja, pero solo entremedio y el final(Nopueden ir dos barra bajas juntas).")
 
     var mail = document.getElementById("mail");
     mail.setAttribute("required", "");
@@ -26,8 +26,12 @@ function init() {
 function showPassword() {
     if (document.getElementById("showPass").checked == true) {
         document.getElementById("pass").type = 'text';
+        document.getElementById("confPass").type = 'text';
+
     } else {
         document.getElementById("pass").type = 'password';
+        document.getElementById("confPass").type = 'password';
+
     }
 }
 
