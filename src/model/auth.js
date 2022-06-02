@@ -27,7 +27,15 @@ exports.resetPassword = async function(id, token) {
 
 exports.getToken = async function(token) {
     var token = await pool.query("SELECT * FROM  recuperar_password WHERE token = ?", [token]);
-
     if (token.length === 0) return false
     else return true
+}
+
+exports.deleteToken = async function(token) {
+    await pool.query("DELETE FROM `recuperar_password` WHERE token =  ?", [token])
+}
+
+exports.changePassword = async function(pass, name) {
+    await pool.query("UPDATE " + TABLE_NAME + " " +
+        "SET password = ? WHERE nom_usuari = ?", [pass, name]);
 }
