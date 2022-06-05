@@ -58,6 +58,10 @@ router.get('/resetPassword/:token', async(req, res) => {
 })
 
 router.post('/changePassword/:token', async(req, res) => {
+    if (req.body.pass !== req.body.confPass) {
+        req.flash('errorFlash', 'Error inesperado!');
+        res.redirect('/')
+    }
     var comprobar = await comprobarPass(req.body.pass)
     if (!comprobar) {
         req.flash('errorFlash', 'Error inesperado!');

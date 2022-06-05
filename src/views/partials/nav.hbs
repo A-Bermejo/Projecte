@@ -20,15 +20,30 @@
                         <a class="btn btn-dark" type="button" id="signup" href="/signup">Sign up</a>
                     </li>
                     {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" id="conocenos" href="/recipe/add">Proponer receta</a>
+                    <li>
+                        <a class="nav-link nav-text d-none d-sm-block d-md-none" href="/recipe/add">Proponer receta</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/favorites" id="favorites" class="nav-link nav-text">Favoritos</a>
+                    <li>
+                        <a class="nav-link nav-text d-none d-sm-block d-md-none" href="/favorites">Favoritos</a>
                     </li>
-                     <li class="nav-item">
-                        <a href="/signin/logout" class="nav-link nav-text">Cerrar sesion</a>
+                    <li>
+                        <a class="nav-link nav-text d-none d-sm-block d-md-none" href="/changePassword">Cambiar contraseña</a>
                     </li>
+                    <li>
+                        <a class="nav-link nav-text d-none d-sm-block d-md-none" href="/signin/logout">Cerrar sesion</a>
+                    </li>
+
+                     <li class="nav-item d-none d-md-block">
+                        <div class="dropdown dropstart">
+                              <a class="nav-link nav-text dropdownMenuButton1"   data-bs-toggle="dropdown" aria-expanded="false"><input class="darkMode" type="image" src="/img/person-circle.svg" /></a>
+                           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="/recipe/add"><input class="dropimg" type="image" src="/img/plus-circle-fill.svg"/> Proponer receta</a></li>
+                            <li><a class="dropdown-item" href="/favorites"><input class="dropimg" type="image" src="/img/star-fill.svg"/> Favoritos</a></li>
+                            <li><a class="dropdown-item" href="/changePassword"><input class="dropimg" type="image" src="/img/gear-fill.svg"/> Cambiar contraseña</a></li>
+                            <li><a class="dropdown-item" href="/signin/logout"><input class="dropimg" type="image" src="/img/box-arrow-left.svg"/> Cerrar sesion</a></li>
+                          </ul>
+                        </div>
+                     </li>  
                     {{/unless}}
                      <li class="nav-item">
                         <a class="nav-link nav-text"><input id="darkMode" class="darkMode" type="image" src="/index/img/moon-stars-fill.svg" /></a>

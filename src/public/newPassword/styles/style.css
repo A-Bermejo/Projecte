@@ -47,4 +47,8 @@ body.dark .form-control {
 #signup {
   font-weight: bold;
 }
+
+#error {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

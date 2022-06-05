@@ -76,3 +76,27 @@
      width: 65px;
      height: 65px;
  }
+ 
+ .dropdown-menu {
+     body.dark & {
+         background-color: $darkmode-border;
+     }
+ }
+ 
+ .dropdown-item {
+     body.dark & {
+         color: white;
+     }
+ }
+ 
+ .dropimg {
+     body.dark & {
+         filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+     }
+ }
+ 
+ .dropdown-item:hover {
+     body.dark & {
+         background-color: #5e5e5e;
+     }
+ }

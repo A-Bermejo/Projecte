@@ -74,4 +74,21 @@ footer {
   width: 65px;
   height: 65px;
 }
+
+body.dark .dropdown-menu {
+  background-color: #3c4043;
+}
+
+body.dark .dropdown-item {
+  color: white;
+}
+
+body.dark .dropimg {
+  -webkit-filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+          filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+}
+
+body.dark .dropdown-item:hover {
+  background-color: #5e5e5e;
+}
 /*# sourceMappingURL=style.css.map */
