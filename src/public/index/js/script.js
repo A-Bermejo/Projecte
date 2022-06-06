@@ -95,6 +95,7 @@
  async function displayList(items, rowsxPage, page, resultados) {
 
      //Logica paginacion
+     let currentPage = page;
      page--;
      let start = rowsxPage * page;
      let end = start + rowsxPage
@@ -137,7 +138,7 @@
      // Printar paginacion 
      let pageCount = Math.ceil(items.length / rowsxPage);
      for (let i = 1; i < pageCount + 1; i++) {
-         let btn = paginationButton(i, page, items, rowsxPage, resultados);
+         let btn = paginationButton(i, currentPage, items, rowsxPage, resultados);
          pag.appendChild(btn)
      }
  }
@@ -145,7 +146,7 @@
  function paginationButton(page, currentPage, items, rowsxPage, resultados) {
      let button = document.createElement('button');
      button.innerText = page;
-     if (currentPage == page) button.classList.add('active');
+     if (currentPage == page) button.style.backgroundColor = 'rgb(255, 0, 60)';
 
      button.addEventListener('click', () => {
          displayList(items, rowsxPage, page, resultados)
