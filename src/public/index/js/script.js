@@ -13,7 +13,11 @@
      dark.addEventListener("click", darkMode)
      $('#ingredient').on('select2:select', serch);
      $('#ingredient').on('select2:unselect', serch);
-
+     $('#vegetariano').change(serch);
+     $('#gluten').change(serch);
+     $('#alcohol').change(serch);
+     $('#lactosa').change(serch);
+     $('#continente').change(serch);
  }
 
 
@@ -40,7 +44,11 @@
  }
 
  async function serch() {
-     var id = $(this).val();
+     var id = $("#ingredient").val();
+     if (id.length == 0) {
+         let resultados = document.getElementById("resultados");
+         resultados.innerHTML = "";
+     }
 
      var where = []
      if (document.getElementById("vegetariano").checked) where.push("vegetariano")
@@ -49,7 +57,6 @@
      if (document.getElementById("lactosa").checked) where.push("lactosa")
 
      var continente = $("#continente").val();
-     console.log(continente);
      const url = "/recipe/getByIngredients"
 
      const response = await fetch(url, {
