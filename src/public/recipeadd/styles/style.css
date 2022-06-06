@@ -56,6 +56,10 @@ body.dark .select2-results__option[aria-selected] {
   color: black;
 }
 
+.select2-results__option {
+  color: black;
+}
+
 body.dark .select2-results__option {
   color: white !important;
   background-color: #303134 !important;

@@ -91,4 +91,25 @@ body.dark .dropimg {
 body.dark .dropdown-item:hover {
   background-color: #5e5e5e;
 }
+
+#btnTop {
+  display: none;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c70d39;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+#btnTop img {
+  -webkit-filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+          filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+}
 /*# sourceMappingURL=style.css.map */

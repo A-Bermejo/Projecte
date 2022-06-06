@@ -1,7 +1,6 @@
 // const { body } = require("express-validator");
 
 // VARIABLES GLOBALES
-var opcionsOpen = false;
 
 function init() {
 
@@ -12,14 +11,29 @@ function init() {
     });
 
 
-
     // VARIABLES
     let dark = document.getElementById("darkMode");
+    const btnTop = document.getElementById("btnTop");
+
     // EVENTOS
     dark.addEventListener("click", darkModeFunction)
+    btnTop.addEventListener("click", goTop)
+    document.addEventListener("scroll", hideArrow)
     load();
 }
 
+function goTop() {
+    window.scrollTo(0, 0);
+}
+
+function hideArrow() {
+    if (document.documentElement.scrollTop <= 50) {
+        document.getElementById("btnTop").style.display = 'none'
+    } else {
+        document.getElementById("btnTop").style.display = 'block'
+
+    }
+}
 
 function darkModeFunction() {
     document.body.classList.toggle('dark')

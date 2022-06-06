@@ -116,6 +116,10 @@ body.dark .select2-container--default .select2-selection--multiple {
 }
 
 .select2-container--default .select2-search--inline .select2-search__field {
+  color: #202124;
+}
+
+body.dark .select2-container--default .select2-search--inline .select2-search__field {
   color: white !important;
 }
 

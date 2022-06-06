@@ -113,7 +113,10 @@
     }
     
     .select2-container--default .select2-search--inline .select2-search__field {
-        color: white !important;
+        color: #202124;
+        body.dark & {
+            color: white !important;
+        }
     }
     
     #buscador {

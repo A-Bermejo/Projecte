@@ -9,17 +9,13 @@ async function init() {
     var a = document.getElementById("a");
 
 
-    document.getElementById('ingredient').addEventListener('change', function() {
-        console.log('You selected: ', this.value);
-    });
+    // document.getElementById('ingredient').addEventListener('change', function() {
+    //     console.log('You selected: ', this.value);
+    // });
 
-    // const url = "http://localhost:3050/recipe/getAllIngredients"
 
-    // fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //     })
+
+
     $('#ingredient').on('select2:select', function(e) {
         var data = e.params.data;
         console.log(ingredient.value);

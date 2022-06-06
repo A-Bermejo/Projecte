@@ -64,8 +64,9 @@ body {
 }
 
 .select2-results__option {
+    color: black;
     body.dark & {
-        color: white !important;
+        color: rgb(255, 255, 255) !important;
         background-color: $darkmode-buscador !important;
     }
 }
