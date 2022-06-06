@@ -1,5 +1,5 @@
  // VARIABLES GLOBALES
- var opcionsOpen = false;
+ var resultadosPeticion = "";
 
  function init() {
      // VARIABLES
@@ -48,6 +48,8 @@
      if (id.length == 0) {
          let resultados = document.getElementById("resultados");
          resultados.innerHTML = "";
+         let pag = document.getElementById("pagination");
+         pag.innerHTML = ""
      }
 
      var where = []
@@ -72,45 +74,85 @@
              })
          })
          .then(response => response.json())
-         .then(data => {
-             console.log(data);
+         .then(async res => {
+             console.log(res);
+             resultadosPeticion = res;
              let resultados = document.getElementById("resultados");
-             if (data.length != 0) {
-                 var resultadosHTML = "";
-                 for (let i = 0; i < data.length; i++) {
-                     resultadosHTML += '<div class="col-6 col-md-4 col-lg-3 mt-3"> ' +
-                         '<div class="card w-100 text-center">' +
-                         '<img src="/uploads/' + data[i].img + '" class="card-img-top" alt="...">' +
-                         '<div class="container-fluid mt-3">';
-                     if (data[i].tipus.includes(6) === false && data[i].tipus.includes(6) === false && data[i].tipus.includes(7) === false && data[i].tipus.includes(8) === false) {
-                         resultadosHTML += '<span class="badge bg-success">🍃Vegetariano</span>'
-                     }
-                     if (data[i].tipus.includes(12) === false) {
-                         resultadosHTML += '<span  class="badge bg-warning">🍞Sin gluten</span>'
-                     }
-                     if (data[i].tipus.includes(9) === true) {
-                         resultadosHTML += '<span class="badge bg-purple">🍾Con alcohol</span>'
-                     }
-                     if (data[i].tipus.includes(1) === false) {
-                         resultadosHTML += '<span class="badge bg-secondary">🥛Sin Lactosa</span>'
-                     }
-                     resultadosHTML += '</div>' +
-                         '<div class="card-body d-flex flex-column">' +
-                         '<h5 class="card-title">' + data[i].nom_recepta + '</h5>' +
-                         '<h6>Tiempo de preparacion: ' + data[i].temps + '</h6>' +
-                         '<h6>País de origen: ' + data[i].nombre_pais + '</h6> ' +
-                         '<p class="card-text">' + data[i].resumen + '</p>' +
-                         '<a href="/recipe/' + data[i].id_recepta + '" class="mt-auto btn btn-danger">Leer receta completa</a>' +
-                         '</div>' +
-                         '</div>' +
-                         ' </div>'
-
-                 }
-                 resultados.innerHTML = resultadosHTML
+             if (res.length != 0) {
+                 let currentPage = 1;
+                 let rows = 8;
+                 await displayList(res, rows, currentPage, resultados);
              } else {
                  resultados.innerHTML = "<p class='text-center'>No hay resulados</p>"
+                 let pag = document.getElementById("pagination");
+                 pag.innerHTML = ""
+
              }
          }).catch();
+
+ }
+
+ async function displayList(items, rowsxPage, page, resultados) {
+
+     //Logica paginacion
+     page--;
+     let start = rowsxPage * page;
+     let end = start + rowsxPage
+     let data = items.slice(start, end);
+     // Printar resultados
+     var resultadosHTML = "";
+     let pag = document.getElementById("pagination");
+     pag.innerHTML = ""
+     for (let i = 0; i < data.length; i++) {
+         resultadosHTML += '<div class="col-6 col-md-4 col-lg-3 mt-3"> ' +
+             '<div class="card w-100 text-center">' +
+             '<img src="/uploads/' + data[i].img + '" class="card-img-top" alt="...">' +
+             '<div class="container-fluid mt-3">';
+         if (data[i].tipus.includes(6) === false && data[i].tipus.includes(6) === false && data[i].tipus.includes(7) === false && data[i].tipus.includes(8) === false) {
+             resultadosHTML += '<span class="badge bg-success">🍃Vegetariano</span>'
+         }
+         if (data[i].tipus.includes(12) === false) {
+             resultadosHTML += '<span  class="badge bg-warning">🍞Sin gluten</span>'
+         }
+         if (data[i].tipus.includes(9) === true) {
+             resultadosHTML += '<span class="badge bg-purple">🍾Con alcohol</span>'
+         }
+         if (data[i].tipus.includes(1) === false) {
+             resultadosHTML += '<span class="badge bg-secondary">🥛Sin Lactosa</span>'
+         }
+         resultadosHTML += '</div>' +
+             '<div class="card-body d-flex flex-column">' +
+             '<h5 class="card-title">' + data[i].nom_recepta + '</h5>' +
+             '<h6>Tiempo de preparacion: ' + data[i].temps + '</h6>' +
+             '<h6>País de origen: ' + data[i].nombre_pais + '</h6> ' +
+             '<p class="card-text">' + data[i].resumen + '</p>' +
+             '<a href="/recipe/' + data[i].id_recepta + '" class="mt-auto btn btn-danger">Leer receta completa</a>' +
+             '</div>' +
+             '</div>' +
+             ' </div>'
+
+     }
+     resultados.innerHTML = resultadosHTML
+
+     // Printar paginacion 
+     let pageCount = Math.ceil(items.length / rowsxPage);
+     for (let i = 1; i < pageCount + 1; i++) {
+         let btn = paginationButton(i, page, items, rowsxPage, resultados);
+         pag.appendChild(btn)
+     }
+ }
+
+ function paginationButton(page, currentPage, items, rowsxPage, resultados) {
+     let button = document.createElement('button');
+     button.innerText = page;
+     if (currentPage == page) button.classList.add('active');
+
+     button.addEventListener('click', () => {
+         displayList(items, rowsxPage, page, resultados)
+
+     })
+
+     return button
 
  }
 
