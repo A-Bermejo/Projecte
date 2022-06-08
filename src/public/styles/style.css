@@ -27,6 +27,7 @@ nav a:hover {
 }
 
 body {
+  padding-top: 100px;
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100vh;
@@ -111,5 +112,21 @@ body.dark .dropdown-item:hover {
 #btnTop img {
   -webkit-filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
           filter: invert(100%) sepia(1%) saturate(3614%) hue-rotate(319deg) brightness(116%) contrast(100%);
+}
+
+.navbar {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  transition: transform 0.35s, -webkit-transform 0.35s;
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
+}
+
+.navHidden {
+  -webkit-transform: translateY(-100px) !important;
+          transform: translateY(-100px) !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=style.css.map */

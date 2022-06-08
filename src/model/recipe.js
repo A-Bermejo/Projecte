@@ -24,7 +24,7 @@ exports.getRecipe = async function(id, req) {
 }
 
 exports.getIngredients = async function() {
-    var ingredientes = await pool.query("SELECT * FROM `ingredients`");
+    var ingredientes = await pool.query("SELECT * FROM `ingredients` ORDER BY nom_ingredient ASC");
     return ingredientes
 }
 

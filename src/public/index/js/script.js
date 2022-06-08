@@ -137,9 +137,11 @@
 
      // Printar paginacion 
      let pageCount = Math.ceil(items.length / rowsxPage);
-     for (let i = 1; i < pageCount + 1; i++) {
-         let btn = paginationButton(i, currentPage, items, rowsxPage, resultados);
-         pag.appendChild(btn)
+     if (pageCount !== 1) {
+         for (let i = 1; i < pageCount + 1; i++) {
+             let btn = paginationButton(i, currentPage, items, rowsxPage, resultados);
+             pag.appendChild(btn)
+         }
      }
  }
 
