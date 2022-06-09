@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="d-flex justify-content-center text-center">
-                <div class="col-12 col-lg-6">Bienvenido a What The Food. Para buscar una receta es muy sencillo, introduzca alimentos que quiere que tenga su receta. Nosotros la buscamos por ti. Recuerda que también puedes usar los filtros para tener una búsqueda mas personalizada.
+                <div class="col-12 col-lg-6">Bienvenido a What The Food. Para buscar una receta es muy sencillo, introduzca alimentos que quiere que tenga su receta. Nosotros la buscamos por ti. Recuerda que también puedes usar los filtros <i>(hacinedo clic en el boton de filtros)</i> para tener una búsqueda mas personalizada.
                     {{#unless user}} ¿Crees que falta alguna receta? Inicia sesion y proponla. Asi nos ayudaras a que tengamos mas resultados. Con una cuenta tambien puede guardarse recetas en la pestaña de favoritos {{/unless}}
                 </div>
             </div>
@@ -39,35 +39,46 @@
                             </div>
                         </div>
                         </div>
-                        <div class="collapse" id="collapseOpcion">
-                            <div class="card card-body">
-                                <div class="container"></div>
-                                <div class="row">
-                                    <div class=" col-6 col-lg-4 form-check">
+                        <div class="collapse " id="collapseOpcion">
+                            <div class="card card-body ">  
+                                 <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-center">Intolerancias</p>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-6  form-check">
                                         <input class="form-check-input" type="checkbox" value="vegetariano" id="vegetariano">
                                         <label class="form-check-label" for="vegetariano">
                                       Vegetariano
                                     </label>
-                                    </div>
-                                    <div class=" col-6 col-lg-4 form-check">
+                                </div>
+                                    <div class="col-6 form-check">
                                         <input class="form-check-input" type="checkbox" value="gluten" id="gluten">
                                         <label class="form-check-label" for="gluten">
                                       Sin gluten
                                     </label>
                                     </div>
-                                    <div class=" col-6 col-lg-4 form-check">
+                                    <div class="col-6 form-check">
                                         <input class="form-check-input" type="checkbox" value="alcohol" id="alcohol">
                                         <label class="form-check-label" for="alcohol">
                                       Sin alcohol
                                     </label>
                                     </div>
-                                    <div class=" col-6 col-lg-4 form-check">
+                                    <div class="col-6  form-check">
                                         <input class="form-check-input" type="checkbox" value="lactosa" id="lactosa">
                                         <label class="form-check-label" for="lactosa">
                                       Sin Lactosa
                                     </label>
                                     </div>
-                                     <div class=" col-6 col-lg-4 form-check">
+                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-center">Continente</p>
+                                    </div>
+                                </div>                                
+                                <div class="row ">
+                                     <div class="col-4 form-check">
                                         <select class="form-select"  id="continente">
                                             <option value="0" selected>Todos los continentes</option>
                                             <option value="1">Europa</option>
@@ -76,6 +87,7 @@
                                             <option value="4">America</option>
                                             <option value="5">Ocenia</option>
                                         </select>
+                                     </div>
                                     </div>
                                 </div>
                             </div>

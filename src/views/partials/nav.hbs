@@ -1,4 +1,4 @@
- <nav class="navbar fixed-top navbar-expand-md navbar-light ">
+ <nav class="navbar fixed-top navbar-expand navbar-light ">
     <div class="container-fluid nav-container">
         <a class="navbar-brand" href="/">
             <img src="/img/logo.png" id="logo">
@@ -19,7 +19,7 @@
                       <a class="btn btn-dark" type="button" id="signup" href="/signup">Sign up</a>
                     </li>
                   {{else}}
-                    <li>
+                    {{!-- <li>
                       <a class="nav-link nav-text d-md-none" href="/recipe/add">Proponer receta</a>
                     </li>
                     <li>
@@ -30,8 +30,8 @@
                     </li>
                     <li>
                       <a class="nav-link nav-text d-none  d-md-none" href="/signin/logout">Cerrar sesion</a>
-                    </li>
-                    <li class="nav-item d-none d-md-block">
+                    </li> --}}
+                    <li class="nav-item">
                         <div class="dropdown dropstart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Opciones de usuario">
                             <a class="nav-link nav-text dropdownMenuButton1"   data-bs-toggle="dropdown" aria-expanded="false"><input class="darkMode" type="image" src="/img/person-circle.svg"/></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">

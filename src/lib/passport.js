@@ -15,18 +15,12 @@ passport.use('local.signin', new LocalStrategy({
     passwordField: 'pass',
     passReqToCallback: true
 }, async(req, user, pass, done) => {
-    var userDB = await modelAuth.getUserByUsername(user);
-
-    if (userDB.length > 0) {
-        var validPassword = await helpers.matchPassword(pass, userDB[0].password)
+    var userBD = await modelAuth.getUserByUsername(user);
+    if (userBD.length > 0) {
+        if (userBD[0].validado === 0) return done(null, false, req.flash('errorFlash', 'Para poder acceder a su cuenta valídela con el enlace que le hemos mandado a su correo'));
+        var validPassword = await helpers.matchPassword(pass, userBD[0].password)
         if (validPassword) {
-            const token = jwt.sign({ id: userDB[0].id_usuari }, tokenConfig.JWT_SECRETO, {
-                expiresIn: tokenConfig.JWT_TIEMPO
-            })
-            const cookieOptions = {
-                expires: new Date(Date.now() + tokenConfig.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000)
-            }
-            return done(null, userDB[0].id_usuari, req.flash('successFlash', ' Bienvenido ' + userDB[0].nom_usuari));
+            return done(null, userBD[0].id_usuari, req.flash('successFlash', ' Bienvenido ' + userBD[0].nom_usuari));
         } else {
             return done(null, false, req.flash('errorFlash', 'El nombre de usuario o la contraseña es incorrecto'));
         }
@@ -55,9 +49,14 @@ passport.use('local', new LocalStrategy({
             password: req.body.pass,
             id: parseInt(res.insertId)
         }
-        await mailRegistro(req.body);
+
+        // Crear token para validar el usuario
+        const token = jwt.sign({ nom: req.body.user }, tokenConfig.JWT_SECRETO)
+        await modelAuth.tokenValidar(res.insertId, token);
+        await mailRegistro(req.body, token);
         return done(null, newUser.id, req.flash('successFlash', ' Bienvenido ' + newUser.username));
-    } catch {
+    } catch (e) {
+        console.log(e);
         return done(null, false, req.flash('errorFlash', 'El correo o el usuario ya existe'));
     }
 }));
@@ -92,11 +91,12 @@ async function comrpobarMail(mail) {
 
 }
 
-async function mailRegistro(body) {
+async function mailRegistro(body, token) {
     await transoperter.sendMail({
         from: 'What The Food <albertobermejo02@gmail.com>',
         to: body.mail,
         subject: "Bienvenido a What The Food",
-        html: "<p>Hola</p>"
+        html: "<p>Bienvenido a What The Food, por favor haga clic en el botón para validar su cuenta.</p>" +
+            "<a href='http://localhost:3050/signup/validar/" + token + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Validar cuenta</button></a>"
     });
 }

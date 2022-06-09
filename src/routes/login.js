@@ -67,10 +67,12 @@ router.post('/changePassword/:token', async(req, res) => {
         req.flash('errorFlash', 'Error inesperado!');
         res.redirect('/')
     } else {
+        // Obtengo el token y lo desencripto para saber que usuario es 
         const token = req.params.token;
         const tokenDecodablePart = token.split('.')[1];
         let decoded = Buffer.from(tokenDecodablePart, 'base64').toString();
-        decoded = JSON.parse(decoded)
+        decoded = JSON.parse(decoded);
+        // Encripto password y luego cambio la contraseña
         const newPass = await helpers.encryptPassword(req.body.pass);
         await model.changePassword(newPass, decoded.nom);
         req.flash('successFlash', ' Se ha actualizado la contraseña');

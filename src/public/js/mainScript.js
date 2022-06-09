@@ -22,8 +22,7 @@ function init() {
     dark.addEventListener("click", darkModeFunction)
     btnTop.addEventListener("click", goTop)
     document.addEventListener("scroll", hideArrow)
-    window.addEventListener("scroll", navbarHide)
-
+    window.addEventListener("wheel", navbarHide)
     load();
 }
 
@@ -41,6 +40,7 @@ function navbarHide() {
 
 function goTop() {
     window.scrollTo(0, 0);
+    document.querySelector(".navbar").classList.remove("navHidden");
 }
 
 function hideArrow() {
@@ -48,7 +48,6 @@ function hideArrow() {
         document.getElementById("btnTop").style.display = 'none'
     } else {
         document.getElementById("btnTop").style.display = 'block'
-
     }
 }
 

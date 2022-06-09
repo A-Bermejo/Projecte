@@ -192,4 +192,9 @@ body.dark .select2-results__option {
 #pagination button:hover {
   background-color: #900c3f;
 }
+
+[type="checkbox"] {
+  text-align: center;
+  vertical-align: middle;
+}
 /*# sourceMappingURL=style.css.map */

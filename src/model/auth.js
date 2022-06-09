@@ -7,6 +7,14 @@ exports.addUser = async function(body) {
         "(nom_usuari, password, mail, gmail_account) VALUES(?,?,?,?)", [body.user, body.pass, body.mail, 0])
 }
 
+exports.tokenValidar = async function(id, token) {
+    return await pool.query("INSERT INTO validar_user (id_user, token) VALUES (?,?)", [id, token])
+}
+
+exports.validarUsuario = async function(user) {
+    return await pool.query("UPDATE " + TABLE_NAME + " SET validado = 1 WHERE nom_usuari = ?", [user])
+}
+
 exports.deserialize = async function(id) {
     return await pool.query("SELECT * FROM " + TABLE_NAME + " WHERE id_usuari = ?", [id]);
 }
@@ -38,4 +46,14 @@ exports.deleteToken = async function(token) {
 exports.changePassword = async function(pass, name) {
     await pool.query("UPDATE " + TABLE_NAME + " " +
         "SET password = ? WHERE nom_usuari = ?", [pass, name]);
+}
+exports.deleteTokenUser = async function(token) {
+    await pool.query("DELETE FROM `validar_user` WHERE token =  ?", [token])
+}
+
+
+exports.getTokenUser = async function(token) {
+    var token = await pool.query("SELECT * FROM  validar_user WHERE token = ?", [token]);
+    if (token.length === 0) return false
+    else return true
 }
