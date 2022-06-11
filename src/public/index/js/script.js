@@ -189,10 +189,10 @@
      resultados.innerHTML = resultadosHTML
 
      // Printar paginacion 
-     let pageCount = Math.ceil(data.length / rowsxPage);
+     let pageCount = Math.ceil(resFinal.length / rowsxPage);
      if (pageCount !== 1) {
          for (let i = 1; i < pageCount + 1; i++) {
-             let btn = paginationButton(i, currentPage, data, rowsxPage, resultados);
+             let btn = paginationButton(i, currentPage, resFinal, rowsxPage, resultados);
              pag.appendChild(btn)
          }
      }
