@@ -42,35 +42,51 @@ async function añadirIngedientes(recetaInfo, ingredientesBD) {
     return recetaInfo;
 }
 
-exports.add = async function(body, id, file) {
+exports.add = async function(body, id) {
+    console.log("a");
     let horaFormat = body.hora + ':' + body.mins;
     let tiempo = (new Date(new Date().toDateString() + ' ' + horaFormat))
+
     var res = await pool.query("INSERT INTO " + TABLE_NAME + " " +
         "(nom_recepta, descripcio_recepta, paisos_id_pais, usuaris_id_usuari, validat_recepta, temps, img) " +
-        "VALUES (?, ?, ?, ?, ?, ?,?) ", [body.nom_recepta, body.descripcio_recepta, body.pais, id, 0, tiempo, file])
+        "VALUES (?, ?, ?, ?, ?, ?, ?) ", [body.nom_recepta, body.descripcio_recepta, body.pais, id, 0, tiempo, " "])
     console.log(res.insertId);
-    for (let i = 0; i < body.ingredient.length; i++) {
+
+    for (let i = 0; i < body.id_ingredientes.length; i++) {
         await pool.query("INSERT INTO ingredients_recepta(ingredients_id_ingredient, receptas_id_recepta, cantidad) " +
-            " VALUES(?,?,?)", [body.ingredient[i], res.insertId, body.cantidad[i]])
+            " VALUES(?,?,?)", [body.id_ingredientes[i], res.insertId, body.id_cantidad[i]])
     }
     return res;
 }
 
-exports.getByIngredients = async function(id, continente) {
+exports.addImg = async function(id, file) {
+    return await pool.query("UPDATE " + TABLE_NAME + " " +
+        "SET img = ? WHERE usuaris_id_usuari = ? AND img = ' '", [file, id]);
+}
+
+exports.getByIngredients = async function(id, continente, hora, mins) {
     var queryContiente = "";
+    var queryTemps = "";
 
     if (continente != 0) queryContiente = "  id_continent = " + continente + " AND ";
 
+    if (hora != "" || hora != 0) {
+        if (mins == "") mins = 00
+        queryTemps = " temps <= '" + hora + ":" + mins + "' AND ";
+    } else if (mins != "" || mins != 0) {
+        hora = 00
+        queryTemps = " temps <= '" + hora + ":" + mins + "' AND ";
+    }
+
     console.log(queryContiente);
-
-
+    console.log(queryTemps);
 
     if (id.length > 1) {
         res = await pool.query("SELECT r.*, paises.nombre_pais " +
             "FROM receptes r " +
             "LEFT JOIN paises ON  `paisos_id_pais`= paises.id_pais " +
             "LEFT JOIN continents ON  continents.id_continent = paises.continentes_id_continente " +
-            "WHERE " + queryContiente + "NOT EXISTS (SELECT * FROM ingredients i " +
+            "WHERE " + queryContiente + queryTemps + " NOT EXISTS (SELECT * FROM ingredients i " +
             "WHERE i.id_ingredient IN (?) " +
             "AND NOT EXISTS " +
             "(SELECT * FROM ingredients_recepta ri " +
@@ -81,7 +97,7 @@ exports.getByIngredients = async function(id, continente) {
             "LEFT JOIN receptes t1 ON receptas_id_recepta = t1.id_recepta " +
             "LEFT JOIN paises ON  `paisos_id_pais`= paises.id_pais " +
             "LEFT JOIN continents ON  continents.id_continent = paises.continentes_id_continente " +
-            "WHERE " + queryContiente + " `ingredients_id_ingredient`= ? AND t1.validat_recepta = 1", [id]);
+            "WHERE " + queryContiente + queryTemps + " `ingredients_id_ingredient`= ? AND t1.validat_recepta = 1", [id]);
     }
 
     var ingredientes = []

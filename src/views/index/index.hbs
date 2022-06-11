@@ -41,44 +41,36 @@
                         </div>
                         <div class="collapse " id="collapseOpcion">
                             <div class="card card-body ">  
-                                 <div class="row">
+                                 <div class="row d-flex justify-content-center">
                                     <div class="col-12">
-                                        <p class="text-center">Intolerancias</p>
+                                        <p class="text-center"><b>Intolerancias</b></p>
                                     </div>
                                 </div>
-                                 <div class="row">
-                                    <div class="col-6  form-check">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-3  form-check">
                                         <input class="form-check-input" type="checkbox" value="vegetariano" id="vegetariano">
-                                        <label class="form-check-label" for="vegetariano">
-                                      Vegetariano
-                                    </label>
-                                </div>
-                                    <div class="col-6 form-check">
+                                        <label class="form-check-label" for="vegetariano">  Vegetariano</label>
+                                    </div>
+                                    <div class="col-3 form-check">
                                         <input class="form-check-input" type="checkbox" value="gluten" id="gluten">
-                                        <label class="form-check-label" for="gluten">
-                                      Sin gluten
-                                    </label>
+                                        <label class="form-check-label" for="gluten">Sin gluten</label>
                                     </div>
-                                    <div class="col-6 form-check">
+                                    <div class="col-3 form-check">
                                         <input class="form-check-input" type="checkbox" value="alcohol" id="alcohol">
-                                        <label class="form-check-label" for="alcohol">
-                                      Sin alcohol
-                                    </label>
+                                        <label class="form-check-label" for="alcohol">Sin alcohol</label>
                                     </div>
-                                    <div class="col-6  form-check">
+                                    <div class="col-3  form-check">
                                         <input class="form-check-input" type="checkbox" value="lactosa" id="lactosa">
-                                        <label class="form-check-label" for="lactosa">
-                                      Sin Lactosa
-                                    </label>
+                                        <label class="form-check-label" for="lactosa">Sin Lactosa</label>
                                     </div>
                                  </div>
-                                <div class="row">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-12">
-                                        <p class="text-center">Continente</p>
+                                        <p class="text-center"><b>Continente</b></p>
                                     </div>
                                 </div>                                
-                                <div class="row ">
-                                     <div class="col-4 form-check">
+                                <div class="row d-flex justify-content-center">
+                                     <div class="col-8 col-md-6 form-check">
                                         <select class="form-select"  id="continente">
                                             <option value="0" selected>Todos los continentes</option>
                                             <option value="1">Europa</option>
@@ -89,6 +81,35 @@
                                         </select>
                                      </div>
                                     </div>
+                                    <div class="container-fluid mb-2">
+                                <div class="row d-flex justify-content-center">
+                                    <p class="text-center"><b>Tiempo de preparacion maximo</b></p>
+                                    <div class="col-4 col-md-2">
+                                        <input type="number" name="hora" id="hora" class="form-control" required  min="1">
+                                    </div>
+                                    :
+                                    <div class="col-4 col-md-2">
+                                        <input type="number" name="mins" id="mins" class="form-control" required max="59" min="1">
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <p class="text-center"><b>Que no contenga</b></p>
+                                    <div class="col-8 offset-1 noBuscar">
+                                      <div class="input-group mb-3 inputGroup">
+                                        {{!-- <input type="text" class="form-control text-buscar rounded-pill buscador" id="buscador"> --}}
+                                         <select id="noBuscar" class='mi-selector rounded-pill' name='noBuscar' multiple='multiple'>
+                                        {{#each ingredients}}
+                                            <option value="{{this.id_ingredient}}">{{this.nom_ingredient}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2" id="clear" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtros para búsqueda avanzada"> 
+                                <button class="btn btn-outline-danger rounded-pill button-buscar" type="button">❌</button>
+                            </div>
+                                    </div>
+                                </div>
+                            </div> 
                                 </div>
                             </div>
                         </div>

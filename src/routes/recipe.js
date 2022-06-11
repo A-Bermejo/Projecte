@@ -2,7 +2,8 @@ const exrpess = require('express');
 const router = exrpess.Router();
 const model = require('../model/recipe');
 const modelPais = require('../model/pais');
-
+const multer = require('multer');
+const upload = multer({ dest: '/public/uploads' })
 const pool = require('../database');
 const async = require('hbs/lib/async');
 const { isLoggedIn } = require('../lib/auth');
@@ -28,13 +29,26 @@ router.get('/add', isLoggedIn, async(req, res) => {
 
 router.post('/addNew', isLoggedIn, async(req, res) => {
     try {
+        console.log(req.body);
         if (req.body.nom_recepta == '' || req.body.hora == '' || req.body.mins == '' || req.body.descripcio_recepta == '') req.body.nom_recepta = null
-        await model.add(req.body, req.user.id_usuari, req.file.filename)
-        req.flash('successFlash', 'La receta se ha mandado correctamente')
-        res.redirect('/');
+        var response = await model.add(req.body, req.user.id_usuari);
+        console.log(response);
+        res.json(response);
+    } catch (e) {
+        req.flash('errorFlash', 'Error inesperado')
+        res.json(e)
+    }
+});
+
+router.post('/img', isLoggedIn, async(req, res) => {
+    try {
+
+        var response = await model.addImg(req.user.id_usuari, req.file.filename);
+        req.flash('successFlash', ' La receta se ha mandado correctamente')
+        res.json(response)
     } catch {
         req.flash('errorFlash', 'Error inesperado')
-        res.redirect('/recipe/add')
+        res.json(e)
     }
 
 });
@@ -76,7 +90,7 @@ router.get('/getById/:id', async(req, res) => {
 
 router.post('/getByIngredients', async(req, res) => {
     try {
-        var response = await model.getByIngredients(req.body.id, req.body.continente);
+        var response = await model.getByIngredients(req.body.id, req.body.continente, req.body.hora, req.body.mins);
         var trueResponse = []
         if (req.body.where.length != 0) {
             for (let i = 0; i < response.length; i++) {
@@ -103,10 +117,10 @@ router.post('/getByIngredients', async(req, res) => {
             for (let i = 0; i < response.length; i++) {
                 response[i].resumen = response[i].descripcio_recepta.slice(0, 100) + "..."
             }
-            console.log(response);
             res.json(response)
         }
-    } catch {
+    } catch (e) {
+        console.log(e);
         req.flash('errorFlash', 'Error inesperado')
         res.redirect('/')
     }

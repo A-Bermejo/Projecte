@@ -72,4 +72,9 @@ body.dark .select2-results__option {
 span {
   color: red;
 }
+
+tr {
+  background-color: #424242;
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */
