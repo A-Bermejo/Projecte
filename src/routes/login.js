@@ -104,7 +104,7 @@ async function mailPassword(body, token) {
         to: body.mail,
         subject: "Recuperar contraseña 🔐",
         html: "<p>Hola si desea recuperar su contraseña haga click en el enlace, tenga en cuenta que este enlace solo tiene un uso</p> " +
-            "<a href='http://localhost:3050/signin/resetPassword/" + token + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Recuperar contraseña</button></a>"
+            "<a href='https://what-thefood.herokuapp.com/signin/resetPassword/" + token + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Recuperar contraseña</button></a>"
     });
 }
 module.exports = router;

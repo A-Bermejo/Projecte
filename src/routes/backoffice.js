@@ -69,7 +69,7 @@ function aceptarReceta(body) {
         to: body.mail,
         subject: "Receta aprobada",
         html: "<p>Nos gustaría informarle que su receta '" + body.foodName + "' ha sido aprobada y ya está disponible para ser encontrada en What The Food. Haga click en el boto para verla</p> " +
-            "<a href='http://localhost:3050/recipe/" + body.id + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Ver receta</button></a>"
+            "<a href='https://what-thefood.herokuapp.com/recipe/" + body.id + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Ver receta</button></a>"
     });
 }
 

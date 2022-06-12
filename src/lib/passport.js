@@ -97,6 +97,6 @@ async function mailRegistro(body, token) {
         to: body.mail,
         subject: "Bienvenido a What The Food",
         html: "<p>Bienvenido a What The Food, por favor haga clic en el botón para validar su cuenta.</p>" +
-            "<a href='http://localhost:3050/signup/validar/" + token + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Validar cuenta</button></a>"
+            "<a href='https://what-thefood.herokuapp.com/signup/validar/" + token + "'><button style='background-color: white; color: black;border: 2px solid #f44336'>Validar cuenta</button></a>"
     });
 }
