@@ -28,7 +28,6 @@ router.get('/add', isLoggedIn, async(req, res) => {
             res.render('recipe/add', { src: "recipeadd", ingredients, paises });
         } else {
             res.json("jquery")
-
         }
     } catch (e) {
         console.log(e);
