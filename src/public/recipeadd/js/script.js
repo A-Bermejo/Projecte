@@ -102,7 +102,7 @@ async function send() {
         })
         .then(response => response.json())
         .then(async res => {
-            await fetch('/recipe/img', {
+            const response = await fetch('/recipe/img', {
                     method: 'POST',
                     mode: 'cors',
                     cache: 'no-cache',
@@ -113,7 +113,16 @@ async function send() {
                     location.reload();
                 }).catch(location.reload())
         }).catch(
-            location.reload()
+            const response = await fetch('/recipe/img', {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    referrer: 'no-referrer',
+                    body: formData
+                }).then(response => response.json())
+                .then(async res => {
+                    location.reload();
+                }).catch(location.reload())
         );
 
 }
