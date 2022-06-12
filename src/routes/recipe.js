@@ -35,6 +35,7 @@ router.post('/addNew', isLoggedIn, async(req, res) => {
         console.log(response);
         res.json(response);
     } catch (e) {
+        console.log(error);
         req.flash('errorFlash', 'Error inesperado')
         res.json(e)
     }
@@ -47,6 +48,7 @@ router.post('/img', isLoggedIn, async(req, res) => {
         req.flash('successFlash', ' La receta se ha mandado correctamente')
         res.json(response)
     } catch {
+        console.log(error);
         req.flash('errorFlash', 'Error inesperado')
         res.json(e)
     }
