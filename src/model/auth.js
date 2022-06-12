@@ -4,7 +4,7 @@ const TABLE_NAME = "users";
 
 exports.addUser = async function(body) {
     return await pool.query("INSERT INTO " + TABLE_NAME + " " +
-        "(nom_usuari, password, mail, gmail_account) VALUES(?,?,?,?)", [body.user, body.pass, body.mail, 0])
+        "(nom_usuari, password, mail) VALUES(?,?,?,?)", [body.user, body.pass, body.mail])
 }
 
 exports.tokenValidar = async function(id, token) {
