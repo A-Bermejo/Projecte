@@ -7,7 +7,7 @@
 //     }
 // }
 
-HEROKU
+// HEROKU
 module.exports = {
     database: {
         host: 'eu-cdbr-west-02.cleardb.net',
