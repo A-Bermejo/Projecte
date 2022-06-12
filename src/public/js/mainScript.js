@@ -2,6 +2,8 @@ let lastScrollY = window.scrollY;
 
 function init() {
 
+
+
     jQuery(document).ready(function($) {
         $(document).ready(function() {
             $('.mi-selector').select2();
@@ -12,6 +14,12 @@ function init() {
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+
+    $('.darkMode').click(function() {
+        $('[data-toggle="tooltip"]').tooltip('hide');
+    });
+
+
 
     // VARIABLES
     let dark = document.getElementById("darkMode");
@@ -48,6 +56,10 @@ function hideArrow() {
         document.getElementById("btnTop").style.display = 'none'
     } else {
         document.getElementById("btnTop").style.display = 'block'
+    }
+    if (window.scrollY == 0) {
+        const nav = document.querySelector(".navbar");
+        nav.classList.remove("navHidden")
     }
 }
 

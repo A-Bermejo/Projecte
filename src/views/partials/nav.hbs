@@ -32,8 +32,8 @@
                       <a class="nav-link nav-text d-none  d-md-none" href="/signin/logout">Cerrar sesion</a>
                     </li> --}}
                     <li class="nav-item">
-                        <div class="dropdown dropstart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Opciones de usuario">
-                            <a class="nav-link nav-text dropdownMenuButton1"   data-bs-toggle="dropdown" aria-expanded="false"><input class="darkMode" type="image" src="/img/person-circle.svg"/></a>
+                        <div class="dropdown dropstart">
+                            <a class="nav-link nav-text dropdownMenuButton1"   data-bs-toggle="dropdown" title="Opciones de usuario"  aria-expanded="false"><input class="darkMode" type="image" src="/img/person-circle.svg"/></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="/recipe/add"><input class="dropimg" type="image" src="/img/plus-circle-fill.svg"/> Proponer receta</a></li>
                                 <li><a class="dropdown-item" href="/favorites"><input class="dropimg" type="image" src="/img/star-fill.svg"/> Favoritos</a></li>
@@ -43,7 +43,7 @@
                         </div>
                     </li>  
                   {{/unless}}
-                   <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modo oscuro/claro">
+                   <li class="nav-item" title="Modo oscuro/claro">
                       <a class="nav-link nav-text"><input id="darkMode" class="darkMode" type="image" src="/index/img/moon-stars-fill.svg" /></a>
                   </li>
               </ul>

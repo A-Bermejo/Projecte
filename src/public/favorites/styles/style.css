@@ -10,6 +10,7 @@ body.dark {
 }
 
 .card {
+  background-color: #d3d3d34a;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }

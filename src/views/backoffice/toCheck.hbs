@@ -9,6 +9,7 @@
         <th scope="col">Nom</th>
         <th scope="col">Descripcio</th>
         <th scope="col">Ingredientes</th>
+        <th scope="col">Cantidad</th>
         <th scope="col">Pais</th>
         <th scope="col">Tiempo</th>
         <th scope="col">Usuario</th>
@@ -20,7 +21,8 @@
         <th scope="row"><img src="/uploads/{{this.img}}"></th>
         <td>{{this.nom_recepta}}</td>
         <td>{{this.descripcio_recepta}}</td>
-         <td>{{#each this.ingredients}}{{this}}    {{/each}}</td>
+        <td>{{#each this.ingredients}}<p>{{this}}</p> {{/each}}</td>
+        <td>{{#each this.cantidad}}<p>{{this}}</p> {{/each}}</td>
         <td>{{this.nombre_pais}}</td>
         <td>{{this.temps}}</td>
         <td>{{this.nom_usuari}}</td>

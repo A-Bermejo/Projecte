@@ -3,13 +3,18 @@
         <div class="col-10 col-lg-8 mx-auto">
             <div class="card mt-5 text-center">
                 <div class="card-header ">
-                    <h3>Añadir receta</h3>
+                    <h3>¡Propon una nueva receta!</h3>
                 </div>
+                <ul class="list-group">
                     <li class="list-group-item">
-                        <form action="/backoffice/addNew" method="POST" enctype="multipart/form-data">
+                        <p>¡{{user.nom_usuari}} ayudanos y haz que What The Food tenga más recetas añadiendo una que no aparezca en el buscador!</p>
+                        <p>Una vez hayas enviado la receta se revisara manualmente, y una vez revisada tu receta estra dispoinble en la aplicacion.</p>
+                    </li>
+                    <li class="list-group-item">
+                         <form action="/recipe/addNew" method="POST" enctype="multipart/form-data">
                             <div class="form-group mb-2">
                                 <label>Nombre de la receta*</label>
-                                    <input type="text" name="nom_recepta" id="nom_recepta" class="form-control" required  placeholder="" autofocus>
+                                    <input type="text" name="nom_recepta"  maxlength="100" id="nom_recepta" class="form-control" required  placeholder="" autofocus>
                             </div>
                             <div class="form-group mb-2">
                                 <label>Pais de origen*</label>
@@ -25,7 +30,7 @@
                                 <div class="row d-flex justify-content-center">
                                     <label>Tiempo de preparacion*</label>
                                     <div class="col-4 col-md-2">
-                                        <input type="number" name="hora" id="hora" class="form-control" required  min="0">
+                                        <input type="number" name="hora" id="hora" class="form-control" required  max="50" min="0">
                                     </div>
                                     :
                                     <div class="col-4 col-md-2">
@@ -35,7 +40,7 @@
                             </div> 
                             <div class="form-group mb-2">
                                 <label for="descripcio_recepta">Preparacion de la receta*</label>
-                                <textarea name="descripcio_recepta" class="form-control" id="descripcio_recepta" required  rows="3"></textarea>
+                                <textarea name="descripcio_recepta" class="form-control"  maxlength="2500" id="descripcio_recepta" required  rows="3"></textarea>
                             </div>                           
                             <div class="form-group mb-2">
                                 <label class="form-label" for="img">Seleciona una imagen*</label>
@@ -55,22 +60,32 @@
                             <div  class="container-fluid">
                                 <div id="ingredientes" class="row mb-2">
                                     <div class="col-6">
-                                        <select id="ingredient[]" class='mi-selector' required name='ingredient[]'>
+                                        <select id="ingredient" class='mi-selector' required name='ingredient'>
                                             <option selected="selected" value="" disabled="disabled">Seleciona un ingrediente</option>
                                                 {{#each ingredients}}
-                                                    <option value="{{this.id_ingredient}}">{{this.nom_ingredient}}</option>
+                                                    <option name="{{this.nom_ingredient}}" value="{{this.id_ingredient}}">{{this.nom_ingredient}}</option>
                                                 {{/each}}
                                         </select>
                                     </div>
                                     <div class="col-6"> 
-                                        <input type="text" name="cantidad[]"   id="cantidad[]" class="form-control" placeholder="Ej: 1Kg, Cucharadas">
+                                        <input type="text" name="cantidad"  maxlength="20"  id="cantidad" class="form-control" placeholder="Ej: 1Kg, Cucharadas">
                                     </div>
                                 </div>
-                                <div id="copy"></div>
+                                <button type="button" disabled  id="afegir" class="btn btn-danger rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom">+</button>
+                                <table id="ingReceta" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ingrediente</th>
+                                            <th>Cantidad</th>
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+
+                                </table>
                             </div>
-                            <button type="button" id="afegir" class="btn btn-danger rounded-circle" >+</button>
                             <div class="form-group mt-2">
-                                <button class="btn btn-primary" > Enviar</button>
+                                <input type="button" id="enviar" disabled class="btn btn-primary" value="Enviar">
                             </div>
                         </form>
                     </li>

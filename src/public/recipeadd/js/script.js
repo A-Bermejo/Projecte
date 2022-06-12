@@ -48,10 +48,10 @@ async function init() {
 
 function comprobarIngrediente(e) {
     document.getElementById("afegir").disabled = false;
+    document.getElementById("afegir").setAttribute("title", "Añadir ingrediente")
     if (id_ingredientes.includes(document.getElementById("ingredient").value)) {
         document.getElementById("afegir").disabled = true;
     }
-
 
 }
 

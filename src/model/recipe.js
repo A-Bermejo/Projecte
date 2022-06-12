@@ -43,14 +43,12 @@ async function añadirIngedientes(recetaInfo, ingredientesBD) {
 }
 
 exports.add = async function(body, id) {
-    console.log("a");
     let horaFormat = body.hora + ':' + body.mins;
     let tiempo = (new Date(new Date().toDateString() + ' ' + horaFormat))
 
     var res = await pool.query("INSERT INTO " + TABLE_NAME + " " +
         "(nom_recepta, descripcio_recepta, paisos_id_pais, usuaris_id_usuari, validat_recepta, temps, img) " +
         "VALUES (?, ?, ?, ?, ?, ?, ?) ", [body.nom_recepta, body.descripcio_recepta, body.pais, id, 0, tiempo, " "])
-    console.log(res.insertId);
 
     for (let i = 0; i < body.id_ingredientes.length; i++) {
         await pool.query("INSERT INTO ingredients_recepta(ingredients_id_ingredient, receptas_id_recepta, cantidad) " +

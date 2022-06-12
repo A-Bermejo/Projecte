@@ -34,6 +34,10 @@ body.dark .text-muted {
   color: #c3c3c3 !important;
 }
 
+.list-group-item {
+  background-color: #d3d3d34a;
+}
+
 body.dark .list-group-item {
   color: #ffffff !important;
   border-top: 1px solid #FFFF;
@@ -74,6 +78,10 @@ span {
 }
 
 tr {
+  background-color: #f2f2f2;
+}
+
+body.dark tr {
   background-color: #424242;
   color: white;
 }

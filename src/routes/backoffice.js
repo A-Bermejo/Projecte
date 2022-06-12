@@ -12,48 +12,55 @@ const pool = require('../database');
 const async = require('hbs/lib/async');
 
 router.get('/', isAdminLoggedIn, async(req, res) => {
-
     res.render('backoffice/backoffice', { src: "backoffice" });
 })
 
 router.get('/toCheck', isAdminLoggedIn, async(req, res) => {
     var response = await model.getAll();
-
     res.render('backoffice/toCheck', { src: "toCheck", response });
 })
 
 router.post('/accept', isAdminLoggedIn, async(req, res) => {
-    var response = await model.accept(req.body.id);
-    aceptarReceta(req.body);
-
-    res.json(response);
+    try {
+        var response = await model.accept(req.body.id);
+        aceptarReceta(req.body);
+        res.json(response);
+    } catch (error) {
+        console.log(error);
+    }
 })
 router.post('/cancel', isAdminLoggedIn, async(req, res) => {
-    var response = await model.cancel(req.body.id);
-    cancelarReceta(req.body);
-
-    res.json(response);
+    try {
+        var response = await model.cancel(req.body.id);
+        cancelarReceta(req.body);
+        res.json(response);
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 router.get('/add', isAdminLoggedIn, async(req, res) => {
-
-    const ingredients = await modelRecipe.getIngredients();
-    const paises = await modelPais.getAll();
-    res.render('backoffice/add', { src: "backofficeAdd", ingredients, paises });
+    try {
+        const ingredients = await modelRecipe.getIngredients();
+        const paises = await modelPais.getAll();
+        res.render('backoffice/add', { src: "backofficeAdd", ingredients, paises });
+    } catch (error) {
+        console.log(error);
+    }
 
 })
 
 router.post('/addNew', isAdminLoggedIn, async(req, res) => {
     try {
+        console.log(req.body);
         if (req.body.nom_recepta == '' || req.body.hora == '' || req.body.mins == '' || req.body.descripcio_recepta == '') req.body.nom_recepta = null
-        await model.add(req.body, req.user.id_usuari, req.file.filename)
-        req.flash('successFlash', 'La receta se ha mandado correctamente')
-        res.redirect('/backoffice/add');
-    } catch {
+        var response = await model.add(req.body, req.user.id_usuari);
+        console.log(response);
+        res.json(response);
+    } catch (e) {
         req.flash('errorFlash', 'Error inesperado')
-        res.redirect('/')
+        res.json(e)
     }
-
 });
 
 function aceptarReceta(body) {

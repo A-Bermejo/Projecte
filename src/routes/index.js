@@ -16,19 +16,24 @@ router.get('/changePassword', isLoggedIn, async(req, res) => {
 });
 
 router.post('/changePassword', isLoggedIn, async(req, res) => {
-    if (req.body.pass !== req.body.confPass) {
-        req.flash('errorFlash', 'Error inesperado!');
-        res.redirect('/')
+    try {
+        if (req.body.pass !== req.body.confPass) {
+            req.flash('errorFlash', 'Error inesperado!');
+            res.redirect('/')
+        }
+        var comprobar = await comprobarPass(req.body.pass)
+        if (!comprobar) {
+            req.flash('errorFlash', 'Error inesperado!');
+            res.redirect('/')
+        }
+        const newPass = await helpers.encryptPassword(req.body.pass);
+        await modelUser.changePassword(newPass, req.user.nom_usuari);
+        req.flash('successFlash', ' Se ha actualizado la contraseña');
+        res.redirect('/');
+
+    } catch (error) {
+        console.log(error);
     }
-    var comprobar = await comprobarPass(req.body.pass)
-    if (!comprobar) {
-        req.flash('errorFlash', 'Error inesperado!');
-        res.redirect('/')
-    }
-    const newPass = await helpers.encryptPassword(req.body.pass);
-    await modelUser.changePassword(newPass, req.user.nom_usuari);
-    req.flash('successFlash', ' Se ha actualizado la contraseña');
-    res.redirect('/');
 
 });
 async function comprobarPass(pass) {
@@ -37,9 +42,12 @@ async function comprobarPass(pass) {
 }
 
 router.get('/', async(req, res) => {
-    const ingredients = await model.getIngredients();
-
-    res.render('index', { src: "index", ingredients });
+    try {
+        const ingredients = await model.getIngredients();
+        res.render('index', { src: "index", ingredients });
+    } catch (error) {
+        res.render('index', { src: "index", ingredients });;
+    }
 })
 
 module.exports = router;

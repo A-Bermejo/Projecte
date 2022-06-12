@@ -34,6 +34,10 @@ body.dark .text-muted {
   color: #c3c3c3 !important;
 }
 
+.list-group-item {
+  background-color: #d3d3d34a;
+}
+
 body.dark .list-group-item {
   color: #ffffff !important;
   border-top: 1px solid #FFFF;
@@ -56,6 +60,10 @@ body.dark .select2-results__option[aria-selected] {
   color: black;
 }
 
+.select2-results__option {
+  color: black;
+}
+
 body.dark .select2-results__option {
   color: white !important;
   background-color: #303134 !important;
@@ -67,5 +75,14 @@ body.dark .select2-results__option {
 
 span {
   color: red;
+}
+
+tr {
+  background-color: #f2f2f2;
+}
+
+body.dark tr {
+  background-color: #424242;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

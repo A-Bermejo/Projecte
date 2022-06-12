@@ -43,6 +43,7 @@
     
     .card {
         transition: .3s ease all;
+        background-color: #d3d3d34a;
         body.dark & {
             background-color: $darkmode-card;
             color: #FFFF;

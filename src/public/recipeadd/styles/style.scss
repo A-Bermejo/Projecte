@@ -38,6 +38,7 @@ body {
 }
 
 .list-group-item {
+    background-color: #d3d3d34a;
     body.dark & {
         color: #ffffff !important;
         border-top: 1px solid #FFFF;
@@ -80,6 +81,9 @@ span {
 }
 
 tr {
-    background-color: #424242;
-    color: white;
+    background-color: #f2f2f2;
+    body.dark & {
+        background-color: #424242;
+        color: white;
+    }
 }

@@ -19,6 +19,7 @@ body {
 }
 
 .card {
+    background-color: #d3d3d34a;
     transition: .3s ease all;
     body.dark & {
         background-color: $darkmode-card;
@@ -34,6 +35,7 @@ body {
 }
 
 .list-group-item {
+    background-color: #f2f2f2;
     body.dark & {
         color: #ffffff !important;
         border-top: 1px solid #FFFF;

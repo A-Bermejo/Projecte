@@ -16,6 +16,7 @@ body.dark {
 }
 
 .card {
+  background-color: #d3d3d34a;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }
@@ -28,6 +29,10 @@ body.dark .card {
 
 body.dark .text-muted {
   color: #c3c3c3 !important;
+}
+
+.list-group-item {
+  background-color: #f2f2f2;
 }
 
 body.dark .list-group-item {
