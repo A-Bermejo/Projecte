@@ -3,7 +3,7 @@ const router = exrpess.Router();
 const model = require('../model/recipe');
 const modelPais = require('../model/pais');
 const multer = require('multer');
-const upload = multer({ dest: 'app/src/public/uploads' })
+const upload = multer({ dest: '/app/src/public/uploads' })
 const pool = require('../database');
 const async = require('hbs/lib/async');
 const { isLoggedIn } = require('../lib/auth');
@@ -35,7 +35,7 @@ router.post('/addNew', isLoggedIn, async(req, res) => {
         console.log(response);
         res.json(response);
     } catch (e) {
-        console.log(error);
+        console.log(e);
         req.flash('errorFlash', 'Error inesperado')
         res.json(e)
     }
@@ -43,12 +43,12 @@ router.post('/addNew', isLoggedIn, async(req, res) => {
 
 router.post('/img', isLoggedIn, async(req, res) => {
     try {
-
+        console.log("AÑADIENDO IMAGEN");
         var response = await model.addImg(req.user.id_usuari, req.file.filename);
         req.flash('successFlash', ' La receta se ha mandado correctamente')
         res.json(response)
     } catch {
-        console.log(error);
+        console.log(e);
         req.flash('errorFlash', 'Error inesperado')
         res.json(e)
     }
