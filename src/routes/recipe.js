@@ -19,11 +19,22 @@ router.get('/getAllIngredients', async(req, res) => {
 
 
 router.get('/add', isLoggedIn, async(req, res) => {
+    try {
 
-    const ingredients = await model.getIngredients();
-    const paises = await modelPais.getAll();
+        if (req.url !== "/favicon.ico") {
+            const ingredients = await model.getIngredients();
+            const paises = await modelPais.getAll();
 
-    res.render('recipe/add', { src: "recipeadd", ingredients, paises });
+            res.render('recipe/add', { src: "recipeadd", ingredients, paises });
+        } else {
+            res.json("jquery")
+
+        }
+    } catch (e) {
+        console.log(e);
+        req.flash('errorFlash', 'Error inesperado')
+        res.json(e)
+    }
 
 });
 
