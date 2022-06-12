@@ -113,16 +113,7 @@ async function send() {
                     location.reload();
                 }).catch(location.reload())
         }).catch(
-            const response = await fetch('/recipe/img', {
-                    method: 'POST',
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    referrer: 'no-referrer',
-                    body: formData
-                }).then(response => response.json())
-                .then(async res => {
-                    location.reload();
-                }).catch(location.reload())
+
         );
 
 }
